@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\Proyecto.csproj": {}
+    "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\Proyecto.csproj": {
+    "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\Proyecto.csproj",
+        "projectUniqueName": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj",
         "projectName": "Proyecto",
-        "projectPath": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\Proyecto.csproj",
-        "packagesPath": "C:\\Users\\PC-1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\obj\\",
+        "projectPath": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj",
+        "packagesPath": "C:\\Users\\LEANDRO\\.nuget\\packages\\",
+        "outputPath": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC-1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LEANDRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,14 +39,19 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -58,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
