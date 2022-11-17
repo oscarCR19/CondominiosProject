@@ -1,11 +1,11 @@
 .vs/
 Proyecto.csproj.user
 obj/Debug/
-modified:   obj/Proyecto.csproj.nuget.dgspec.json
-modified:   obj/Proyecto.csproj.nuget.g.props
-modified:   obj/project.assets.json
-modified:   obj/project.nuget.cache
-obj/project.assets.json
+obj/Proyecto.csproj.nuget.dgspec.json
+obj/Proyecto.csproj.nuget.g.props
 obj/project.assets.json
 obj/project.nuget.cache
+obj/project.assets.json
 obj/Proyecto.csproj.nuget.dgspec.json
+bin/
+obj/staticwebassets.pack.sentinel
