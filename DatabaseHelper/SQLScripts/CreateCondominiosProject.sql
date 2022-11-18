@@ -48,6 +48,7 @@ Create table AdminPorEmpresas(
 Create table Condominios(
 	id_Con Int Identity(1,1) NOT NULL,
 	id_Empre Int NOT NULL,
+	codigo Varchar(30) NOT NULL,
 	nombre Varchar(30) NOT NULL,
 	direccion Varchar(100) NOT NULL,
 	tel Varchar(15) NOT NULL,
@@ -127,11 +128,15 @@ Create table VisitasPorCondominios(
 
 );
 
---Nota este script es para las personas que ya tieen implementada la base de datos
+--Nota este script es para las personas que ya tienen implementada la base de datos
 
 --Modificación del campo cod_QR 
 ALTER TABLE VisitasPorCondominios
 ALTER COLUMN cod_QR Varchar(4)
+
+--Añadir campo codigo en la tabla Condominios
+ALTER TABLE Condominios
+ADD codigo Varchar(30)
 
 --Creación de las columnas para las fechas de QR
 ALTER TABLE VisitasPorCondominios 
