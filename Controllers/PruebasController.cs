@@ -15,12 +15,8 @@ namespace Proyecto.Controllers
         public ActionResult getQrCode()
         {
             CodeQR codeQR = new CodeQR();
-            int num = codeQR.GetCode2();
+            string num = codeQR.GetCode();
             ViewBag.code = num;
-
-           
-            
-           
             return View("pruebas");
         }
 
