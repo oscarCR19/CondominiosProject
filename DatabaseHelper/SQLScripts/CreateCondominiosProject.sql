@@ -127,14 +127,13 @@ Create table VisitasPorCondominios(
 
 );
 
-
 --Nota este script es para las personas que ya tieen implementada la base de datos
 
---Modificación del campo cod_QR 
+--ModificaciÃ³n del campo cod_QR 
 ALTER TABLE VisitasPorCondominios
 ALTER COLUMN cod_QR Varchar(4)
 
---Creación de las columnas para las fechas de QR
+--CreaciÃ³n de las columnas para las fechas de QR
 ALTER TABLE VisitasPorCondominios 
 ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
 
@@ -143,7 +142,6 @@ Create table TiposVisita(
 	descrip Varchar(20) NOT NULL,
 	Constraint pk_TiposVisita Primary key(id_Vis)
 	);
-
 
 Create table ActividadGuardas(
 	id_Activ Int Identity(1,1) NOT NULL,

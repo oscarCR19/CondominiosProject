@@ -10,6 +10,7 @@ CREATE OR ALTER PROCEDURE [dbo].[spRegistrarUsuario]
 	@correo Varchar(50),
 	@usuario Varchar(40),
 	@contra Varchar(40)
+
 AS
 	BEGIN
 		INSERT INTO Personas(
@@ -30,7 +31,6 @@ AS
 			@telef,
 			@correo,
 			@usuario,
-			@contra,
-			@id_Rol)
+			@contra)
 	END
 	GO

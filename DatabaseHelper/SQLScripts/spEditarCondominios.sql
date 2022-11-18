@@ -12,7 +12,6 @@ AS
 	BEGIN
 		UPDATE [dbo].[Condominios] 
 		SET 
-			id_Con = @id_Con, 
 			nombre = @nombre,
 			direccion = @direccion,
 			tel = @tel,
