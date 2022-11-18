@@ -3,38 +3,20 @@
     public class CodeQR
     {
 
-        public int GetCode()
+        public string GetCode()
         {
-            string? result = null;
+            string result = default;
 
             Random numRam = new Random();
-            for (int i = 0; i < 4; i++)
-            {
-                int? num= numRam.Next(0, 9);
-                if (result== null && num==0)
-                {
-                    result += numRam.Next(1, 9);
-                }
-                else
-                {
-                    result += numRam.Next(0, 9);
-                }
-                num = null;
+            result += numRam.Next(1000, 9999);
+                
                 
 
-            }
-            return Convert.ToInt32(result);
+            
+            return result;
         }
 
-        public int GetCode2()
-        {
-            for(int i = 0; i < 20; i++)
-            {
-                int num = GetCode();
-            }
-
-            return 1;
-        }
+       
 
     }
 }
