@@ -114,9 +114,11 @@ Create table VisitasPorCondominios(
 	id_Veh int  NULL, 
 	placa Varchar(15) NOT NULL,
 	col_Vehic Varchar(20) NOT NULL,
-	cita datetime NOT NULL,
+	cita datetime NOT NULL, 
 	ruta_QR Varchar(100) NULL,
-	cod_QR Int NULL,
+	cod_QR Varchar(4) NULL,
+	fechInicioQR datetime null,
+	fechaExperQR datetime null,
 	Constraint pk_VisitasPorCondiminios Primary key(id_Vis),
 	Constraint fk_VisitasPorCondiminios1 Foreign key(id_Veh) references Vehiculos(id_Veh),
 	Constraint fk_VisitasPorCondiminios2 Foreign key(id_Cas) references CasasPorCondominios(id_Cas),
@@ -124,6 +126,17 @@ Create table VisitasPorCondominios(
 	Constraint fk_VisitasPorCondiminios4 Foreign key(id_Vis) references VisitasPorCondominios(id_Vis)
 
 );
+
+
+--Nota este script es para las personas que ya tieen implementada la base de datos
+
+--Modificación del campo cod_QR 
+ALTER TABLE VisitasPorCondominios
+ALTER COLUMN cod_QR Varchar(4)
+
+--Creación de las columnas para las fechas de QR
+ALTER TABLE VisitasPorCondominios 
+ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
 
 Create table TiposVisita(
 	id_Vis Int Identity(1,1) NOT NULL,
