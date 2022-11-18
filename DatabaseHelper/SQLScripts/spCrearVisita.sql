@@ -11,7 +11,9 @@ CREATE OR ALTER PROCEDURE [dbo].[spCrearVisita]
 	@col_Vehic Varchar(20),
 	@cita datetime,
 	@ruta_QR Varchar(100),
-	@cod_QR Int
+	@cod_QR Int,
+	@fechInicioQR datetime,
+	@fechaExperQR datetime
 AS
 	BEGIN
 		INSERT INTO VisitasPorCondominios
@@ -24,7 +26,9 @@ AS
 			col_Vehic,
 			cita,
 			ruta_QR,
-			cod_QR)
+			cod_QR,
+			fechInicioQR,
+			fechaExperQR)
 
 		VALUES(
 			@id_Cas,
@@ -36,6 +40,8 @@ AS
 			@col_Vehic,
 			@cita,
 			@ruta_QR,
-			@cod_QR)
+			@cod_QR,
+			@fechInicioQR,
+			@fechaExperQR)
 	END
 	GO
