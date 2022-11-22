@@ -2,21 +2,126 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Bienvenido @ViewBag.User.NombreCompleto</h1>
+    </div>
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:100px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="CreateVisitas" asp-controller="Home">
+                                <button class="btn btn-success" type="submit">Crear Visita</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:150px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="CreateCondominios" asp-controller="Condominios">
+                                <button class="btn btn-success" type="submit">Crear Condominio</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:150px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="EditCondominios" asp-controller="Condominios">
+                                <button class="btn btn-success" type="submit">Editar Condominio</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:100px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="CreateVehiculo" asp-controller="Home">
+                                <button class="btn btn-success" type="submit">Añadir Vehiculos</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+@*
+    <div class="text-center">
+        <div class="container">
+            <form asp-action="Create" asp-controller="Home">
+                <button class="btn btn-success" type="submit">Registrar Entrada</button>
+                <button class="btn btn-danger" type="submit">Registrar Salida</button>
+            </form>
+            <hr />
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <h2 class="card-text" style="color: black">Condominio Escazú</h2>
+                            <img src="~/img/escazu.jpg" class="card-img-top" alt="..." style="width:250px">
+                            <hr />
+                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Escazu</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <h2 class="card-text" style="color: black">Condominio Alajuela</h2>
+                            <img src="~/img/alajuela.jpg" class="card-img-top" alt="..." style="width:250px">
+                            <hr />
+                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Alajuela</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <h2 class="card-text" style="color: black">Condominio Heredia</h2>
+                            <img src="~/img/heredia.jpg" class="card-img-top" alt="..." style="width:250px">
+                            <hr />
+                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Heredia</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+</body>
+
+
+<style>
+    body {
+        height: 400px;
+        background-image: url("https://img.freepik.com/fotos-premium/fondo-degradado-suave_77528-21.jpg?w=740.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 0;
+        color: white;
+        font: 600 16px/18px 'Open Sans',sans-serif;
+    }
+
+</style>
