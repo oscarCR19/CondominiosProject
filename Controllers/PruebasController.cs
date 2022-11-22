@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Proyecto.Models.CodeQR;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
@@ -12,13 +12,15 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult getQrCode()
+       /* public ActionResult getQrCode()
         {
             CodeQR codeQR = new CodeQR();
             string num = codeQR.GetCode();
             ViewBag.code = num;
             return View("pruebas");
-        }
+            // codigo de pruebas
+
+        }*/
 
 
 
