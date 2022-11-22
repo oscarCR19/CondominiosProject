@@ -1,4 +1,4 @@
-﻿namespace MVCondominios.Models
+﻿namespace Proyecto.Models
 {
     public class ErrorHandler
     {

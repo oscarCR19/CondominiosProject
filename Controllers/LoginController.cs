@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
-using MVCondominios.Models;
-using MVCondominios.DatabaseHelper;
+using Proyecto.Models;
+using Proyecto.DatabaseHelper;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-//using MVCondominios.Models;
 
-namespace MVCondominios.Controllers
+namespace Proyecto.Controllers
 {
     public class LoginController : Controller
     {

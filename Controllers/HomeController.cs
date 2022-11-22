@@ -1,10 +1,9 @@
-﻿using MVCondominios.Models;
+﻿using Proyecto.Models;
 using Microsoft.AspNetCore.Mvc;
-//using MVCondominios.Models;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace MVCondominios.Controllers
+namespace Proyecto.Controllers
 {
     public class HomeController : Controller
     {
@@ -49,25 +48,6 @@ namespace MVCondominios.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        //public IActionResult GuardarVisita(string txtIdMovie, string txtName, string selectGenere, string txtDate)
-        //{
-
-        //    Movies movie = new Movies()
-        //    {
-        //        IdMovie = Convert.ToInt32(txtIdMovie),
-        //        Name = txtName,
-        //        Genere = selectGenere,
-        //        Date = txtDate,
-        //        Photo = "/images/0.jpg",
-        //    };
-
-        //    DatabaseHelper.DatabaseHelper.CreateMovie(movie);
-
-        //    return RedirectToAction("Index", "Home");
-        //}
-
 
         public IActionResult Privacy()
         {
