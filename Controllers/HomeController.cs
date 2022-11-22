@@ -16,27 +16,7 @@ namespace Proyecto.Controllers
 
         public IActionResult Index()
         {
-
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("userSession")))
-            {
-                ViewBag.User = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("userSession"));
-
-                //ViewBag.Employees = true;
-                //ViewBag.Sales = true;
-
-                return View();
-            }
-            else
-            {
-                ViewBag.Error = new ErrorHandler()
-                {
-                    Title = "You must need to login to access this page",
-                    ErrorMessage = "Please login",
-                    Path = "/Login"
-                };
-
-                return View("ErrorHandler");
-            }
+            return View();
         }
 
         public IActionResult CreateVisitas()
