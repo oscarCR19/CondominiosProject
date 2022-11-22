@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MVCondominios.Controllers
+namespace Proyecto.Controllers
 {
     public class CondominiosController : Controller
     {
