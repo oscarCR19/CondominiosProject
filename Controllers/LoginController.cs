@@ -1,83 +1,147 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
+using System.Data;
+using MVCondominios.Models;
+using MVCondominios.DatabaseHelper;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+//using MVCondominios.Models;
 
-namespace Proyecto.Controllers
+namespace MVCondominios.Controllers
 {
-	public class LoginController : Controller
-	{
-		// GET: LoginController
-		public ActionResult Index()
-		{
-			return View();
-		}
+    public class LoginController : Controller
+    {
+        // GET: LoginController
+        public ActionResult Index()
+        {
+            //ViewBag.Employees = false;
+            //ViewBag.Sales = false;
 
-		// GET: LoginController/Details/5
-		public ActionResult Details(int id)
-		{
-			return View();
-		}
+            return View();
+        }
 
-		// GET: LoginController/Create
-		public ActionResult Create()
-		{
-			return View();
-		}
+        [HttpPost]
+        public ActionResult ValidateLogin(string txtUser, string txtPassword)
+        {
+            User? user = GetUser(txtUser, txtPassword);
 
-		// POST: LoginController/Create
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Create(IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+            if (user != null)
+            {
+                string strUser = JsonConvert.SerializeObject(user);
 
-		// GET: LoginController/Edit/5
-		public ActionResult Edit(int id)
-		{
-			return View();
-		}
+                HttpContext.Session.SetString("userSession", strUser);
 
-		// POST: LoginController/Edit/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Error = new ErrorHandler()
+                {
+                    Title = "Invalid Login",
+                    ErrorMessage = "Incorrect User or Password",
+                    Path = "/Login"
+                };
 
-		// GET: LoginController/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+                return View("ErrorHandler");
+            }
+        }
 
-		// POST: LoginController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
-		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
-	}
+        private User? GetUser(string txtUser, string txtPassword)
+        {
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("[dbo].[spGetUser]", new List<SqlParameter>()
+            {
+                new SqlParameter("@NombreUsuario", txtUser),
+                new SqlParameter("@Password", txtPassword)
+            });
+
+            if (ds.Rows.Count > 0)
+            {
+                User user = new User
+                {
+                    IdEstudiante = Convert.ToInt16(ds.Rows[0]["IdEstudiante"]),
+                    NombreCompleto = ds.Rows[0]["NombreCompleto"].ToString(),
+                    Cedula = ds.Rows[0]["Cedula"].ToString(),
+                    NombreUsuario = ds.Rows[0]["NombreUsuario"].ToString(),
+                    Password = ds.Rows[0]["Password"].ToString(),
+                    IdRol = Convert.ToInt16(ds.Rows[0]["IdRol"]),
+                };
+
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        // GET: LoginController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: LoginController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: LoginController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: LoginController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View("Index");
+        }
+
+        // POST: LoginController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: LoginController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: LoginController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
 }
