@@ -14,65 +14,18 @@ namespace Proyecto.Controllers
         // GET: LoginController
         public ActionResult Index()
         {
-            //ViewBag.Employees = false;
-            //ViewBag.Sales = false;
+           return View();
+        }
 
+        //Ejemplo de manejo del backen en el controlador
+
+       /* public ActionResult ValidateLogin(string txtUsuario,string txt Contrasena)
+        {
+            Persons.Persons.ValidatePerson();
+            
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult ValidateLogin(string txtUser, string txtPassword)
-        {
-            User? user = GetUser(txtUser, txtPassword);
-
-            if (user != null)
-            {
-                string strUser = JsonConvert.SerializeObject(user);
-
-                HttpContext.Session.SetString("userSession", strUser);
-
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.Error = new ErrorHandler()
-                {
-                    Title = "Invalid Login",
-                    ErrorMessage = "Incorrect User or Password",
-                    Path = "/Login"
-                };
-
-                return View("ErrorHandler");
-            }
-        }
-
-        private User? GetUser(string txtUser, string txtPassword)
-        {
-            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("[dbo].[spGetUser]", new List<SqlParameter>()
-            {
-                new SqlParameter("@NombreUsuario", txtUser),
-                new SqlParameter("@Password", txtPassword)
-            });
-
-            if (ds.Rows.Count > 0)
-            {
-                User user = new User
-                {
-                    IdEstudiante = Convert.ToInt16(ds.Rows[0]["IdEstudiante"]),
-                    NombreCompleto = ds.Rows[0]["NombreCompleto"].ToString(),
-                    Cedula = ds.Rows[0]["Cedula"].ToString(),
-                    NombreUsuario = ds.Rows[0]["NombreUsuario"].ToString(),
-                    Password = ds.Rows[0]["Password"].ToString(),
-                    IdRol = Convert.ToInt16(ds.Rows[0]["IdRol"]),
-                };
-
-                return user;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        }*/
+        
 
         // GET: LoginController/Details/5
         public ActionResult Details(int id)
