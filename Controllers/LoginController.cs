@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Proyecto.Models;
 using Proyecto.DatabaseHelper;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Proyecto.Controllers
@@ -12,7 +12,7 @@ namespace Proyecto.Controllers
     public class LoginController : Controller
     {
         // GET: LoginController
-        public ActionResult Index()
+        public ActionResult login()
         {
            return View();
         }
