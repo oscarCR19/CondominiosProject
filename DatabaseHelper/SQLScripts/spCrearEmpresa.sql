@@ -1,7 +1,7 @@
 USE [CondominiosProject]
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[spRegistrarUsuario]
+CREATE OR ALTER PROCEDURE [dbo].[spCrearEmpresa]
 	@id_Rol Int,
 	@ced Varchar(15),
 	@nombre1 Varchar(30),
@@ -11,7 +11,14 @@ CREATE OR ALTER PROCEDURE [dbo].[spRegistrarUsuario]
 	@telef Varchar(15),
 	@correo Varchar(50),
 	@usuario Varchar(40),
-	@contra Varchar(40)
+	@contra Varchar(40),
+
+	@nombreEmpresa Varchar(50),
+	@direc Varchar(100),
+	@tel Varchar(15),
+	@correoEmpresa Varchar(50),
+	@logo Varchar(100),
+	@cedJuridica Varchar(200)
 
 AS
 	BEGIN
@@ -39,4 +46,23 @@ AS
 			@usuario,
 			@contra)
 	END
+
+	BEGIN
+		INSERT INTO Empresas(
+			nombre,
+			direc,
+			tel,
+			correo,
+			logo,
+			cedJuridica)
+
+		VALUES(
+			@nombreEmpresa,
+			@direc,
+			@tel,
+			@correoEmpresa,
+			@logo,
+			@cedJuridica)
+	END
+
 	GO
