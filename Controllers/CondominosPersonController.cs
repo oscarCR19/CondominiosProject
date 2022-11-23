@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Proyecto.Controllers
 {
-    public class CondominiosPersonController : Controller
+    public class CondominosPersonController : Controller
     {
         // GET: CondominiosPersonController
-        public ActionResult condominiosperson()
+        public ActionResult condominosperson()
         {
             return View();
         }
