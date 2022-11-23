@@ -4,7 +4,8 @@ GO
 CREATE OR ALTER PROCEDURE [dbo].[spCrearVisita]
 	@id_Cas Int,
 	@nombre Varchar(30),
-	@apellido Varchar(30),
+	@apellido1 Varchar(30),
+	@apellido2 Varchar(30),
 	@id_Mol Int,
 	@id_Veh Int, 
 	@placa Varchar(15),
@@ -19,7 +20,8 @@ AS
 		INSERT INTO VisitasPorCondominios
 			(id_Cas,
 			nombre,
-			apellido,
+			apellido1,
+			apellido2,
 			id_Mol,
 			id_Veh, 
 			placa,
@@ -33,7 +35,8 @@ AS
 		VALUES(
 			@id_Cas,
 			@nombre,
-			@apellido,
+			@apellido1,
+			@apellido2,
 			@id_Mol,
 			@id_Veh, 
 			@placa,

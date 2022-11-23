@@ -11,8 +11,10 @@ Create table Personas(
 	id_Person Int Identity(1,1) NOT NULL,
 	id_Rol Int NOT NULL,
 	ced Varchar(15) Unique NOT NULL,
-	nombre Varchar(30) NOT NULL,
-	apellido Varchar(30) NOT NULL,
+	nombre1 Varchar(30) NOT NULL,
+	nombre2 Varchar(30) NULL,
+	apellido1 Varchar(30) NOT NULL,
+	apellido2 Varchar(30) NOT NULL,
 	telef Varchar(15) NOT NULL,
 	correo Varchar(50) NOT NULL,
 	usuario Varchar(40) NOT NULL,
@@ -38,14 +40,6 @@ Create table Empresas(
 	Constraint pk_Empresas Primary key(id_Empre),
 );
 
-Create table AdminPorEmpresas(
-	id_Person Int NOT NULL,
-	id_Empre Int NOT NULL,
-	Constraint pk_AdminPorEmpresas Primary key(id_Person,id_Empre),
-	Constraint fk_AdminPorEmpresas Foreign key(id_Person) references Personas(id_Person),
-	Constraint fk_AdminPorEmpresas2 Foreign key(id_Empre) references Empresas(id_Empre)
-);
-
 Create table Condominios(
 	id_Con Int Identity(1,1) NOT NULL,
 	id_Empre Int NOT NULL,
@@ -68,6 +62,14 @@ Create table CasasPorCondominios(
 	Constraint fk_CasasPorCondominios Foreign key(id_Con) references Condominios(id_Con)
 );
 
+Create table CondiminiosPorEmpresas(
+	id_Con Int NOT NULL,
+	id_Empre Int NOT NULL,
+	Constraint pk_CondiminiosPorEmpresas Primary key(id_Con,id_Empre),
+	Constraint fk_CondiminiosPorEmpresas Foreign key(id_Con) references Condominios(id_Con),
+	Constraint fk_CondiminiosPorEmpresas2 Foreign key(id_Empre) references Empresas(id_Empre)
+);
+
 Create table CasasPorCondominos(
 	id_Con Int NOT NULL,
 	id_Person Int NOT NULL,
@@ -76,7 +78,6 @@ Create table CasasPorCondominos(
 	Constraint fk_CasasPorCondominos1 Foreign key(id_Con) references Condominios(id_Con),
 	Constraint fk_CasasPorCondominos2 Foreign key(id_Person) references Personas(id_Person),
 	Constraint fk_CasasPorCondominos3 Foreign key(id_Cas) references CasasPorCondominios(id_Cas)
-
 );
 
 Create table Vehiculos(
@@ -111,7 +112,8 @@ Create table VisitasPorCondominios(
 	id_Vis Int Identity(1,1) NOT NULL,
 	id_Cas Int NOT NULL,
 	nombre Varchar(30) NOT NULL,
-	apellido Varchar(30)  NULL,
+	apellido1 Varchar(30) NULL,
+	apellido2 Varchar(30) NULL,
 	id_Mol Int  NULL,
 	id_Veh int  NULL, 
 	placa Varchar(15) NOT NULL,
@@ -127,6 +129,22 @@ Create table VisitasPorCondominios(
 	Constraint fk_VisitasPorCondiminios3 Foreign key(id_Mol) references Modelos(id_Mol),
 	Constraint fk_VisitasPorCondiminios4 Foreign key(id_Vis) references VisitasPorCondominios(id_Vis)
 
+);
+
+Create table TiposVisita(
+	id_Vis Int Identity(1,1) NOT NULL,
+	descrip Varchar(20) NOT NULL,
+	Constraint pk_TiposVisita Primary key(id_Vis)
+	);
+
+Create table ActividadGuardas(
+	id_Activ Int Identity(1,1) NOT NULL,
+	id_Person Int NOT NULL,
+	id_Con Int NOT NULL,
+	fecha datetime NOT NULL,
+	Constraint pkey_VisitasPorCondiminios Primary key(id_Activ),
+	Constraint fk_ActividadGuardas1 Foreign key(id_Person) references Personas(id_Person),
+	Constraint fk_ActividadGuardas2 Foreign key(id_Con) references Condominios(id_Con),
 );
 
 --Nota este script es para las personas que ya tienen implementada la base de datos
@@ -146,19 +164,3 @@ ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
 --Creacion columna para la cedula juridica de las empresas
 ALTER TABLE Empresas 
 ADD cedJuridica Varchar(200) NOT NULL;
-
-Create table TiposVisita(
-	id_Vis Int Identity(1,1) NOT NULL,
-	descrip Varchar(20) NOT NULL,
-	Constraint pk_TiposVisita Primary key(id_Vis)
-	);
-
-Create table ActividadGuardas(
-	id_Activ Int Identity(1,1) NOT NULL,
-	id_Person Int NOT NULL,
-	id_Con Int NOT NULL,
-	fecha datetime NOT NULL,
-	Constraint pkey_VisitasPorCondiminios Primary key(id_Activ),
-	Constraint fk_ActividadGuardas1 Foreign key(id_Person) references Personas(id_Person),
-	Constraint fk_ActividadGuardas2 Foreign key(id_Con) references Condominios(id_Con),
-);
