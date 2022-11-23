@@ -34,6 +34,7 @@ Create table Empresas(
 	tel Varchar(15) NOT NULL,
 	correo Varchar(50) NOT NULL,
 	logo Varchar(100) NOT NULL,
+	cedJuridica Varchar(200) NOT NULL
 	Constraint pk_Empresas Primary key(id_Empre),
 );
 
@@ -141,6 +142,10 @@ ADD codigo Varchar(30)
 --Creación de las columnas para las fechas de QR
 ALTER TABLE VisitasPorCondominios 
 ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
+
+--Creacion columna para la cedula juridica de las empresas
+ALTER TABLE Empresas 
+ADD cedJuridica Varchar(200) NOT NULL;
 
 Create table TiposVisita(
 	id_Vis Int Identity(1,1) NOT NULL,
