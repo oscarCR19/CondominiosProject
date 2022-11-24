@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj": {}
+    "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj": {}
   },
   "projects": {
-    "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj": {
+    "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj",
+        "projectUniqueName": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj",
         "projectName": "Proyecto",
-        "projectPath": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\Proyecto.csproj",
-        "packagesPath": "C:\\Users\\LEANDRO\\.nuget\\packages\\",
-        "outputPath": "D:\\LEANDRO\\Trabajos de la U\\Programación de Computadoras V\\Proyecto Progra V\\CondominiosProject\\obj\\",
+        "projectPath": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj",
+        "packagesPath": "C:\\Users\\anani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LEANDRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Newtonsoft.Json": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[6.0.10, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
