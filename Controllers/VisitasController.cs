@@ -3,26 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Proyecto.Controllers
 {
-    public class CondominosPersonController : Controller
+    public class VisitasController : Controller
     {
-        // GET: CondominiosPersonController
-        public ActionResult CreatePerson()
+        // GET: VisitsController
+        public ActionResult CreateVisita()
         {
             return View();
         }
 
-        public ActionResult EditPerson()
+        // GET: VisitsController/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CondominiosPersonController/Create
+        // GET: VisitsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CondominiosPersonController/Create
+        // POST: VisitsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -37,13 +38,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: CondominiosPersonController/Edit/5
+        // GET: VisitsController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CondominiosPersonController/Edit/5
+        // POST: VisitsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -58,13 +59,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: CondominiosPersonController/Delete/5
+        // GET: VisitsController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CondominiosPersonController/Delete/5
+        // POST: VisitsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
