@@ -4,7 +4,7 @@
 
 <body>
     <div class="text-center">
-        <h1 class="display-4">Bienvenido @ViewBag.User.NombreCompleto</h1>
+        <h1 class="display-4">Bienvenido</h1>
     </div>
 
 
@@ -17,8 +17,18 @@
                 <div class="col">
                     <div class="card shadow-sm" style="width:100px">
                         <div class="flex-shrink-0">
-                            <form asp-action="CreateVisitas" asp-controller="Home">
-                                <button class="btn btn-success" type="submit">Crear Visita</button>
+                            <form asp-action="CreatePerson" asp-controller="CondominosPerson">
+                                <button class="btn btn-success" type="submit">Crear Persona</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:100px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="EditPerson" asp-controller="CondominosPerson">
+                                <button class="btn btn-success" type="submit">Editar Persona</button>
                             </form>
                         </div>
                     </div>
@@ -44,15 +54,17 @@
                     </div>
                 </div>
 
+                
                 <div class="col">
-                    <div class="card shadow-sm" style="width:100px">
+                    <div class="card shadow-sm" style="width:130px">
                         <div class="flex-shrink-0">
-                            <form asp-action="CreateVehiculo" asp-controller="Home">
-                                <button class="btn btn-success" type="submit">Añadir Vehiculos</button>
+                            <form asp-action="CreateVisita" asp-controller="Visitas">
+                                <button class="btn btn-success" type="submit">Crear Visitas</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -105,10 +117,6 @@
             </div>
         </div>
     </div>*@
-
-
-
-
 </body>
 
 
@@ -123,5 +131,4 @@
         color: white;
         font: 600 16px/18px 'Open Sans',sans-serif;
     }
-
 </style>
