@@ -17,6 +17,16 @@
                 <div class="col">
                     <div class="card shadow-sm" style="width:100px">
                         <div class="flex-shrink-0">
+                            <form asp-action="GetPerson" asp-controller="CondominosPerson">
+                                <button class="btn btn-success" type="submit">Lista de Persona</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:100px">
+                        <div class="flex-shrink-0">
                             <form asp-action="CreatePerson" asp-controller="CondominosPerson">
                                 <button class="btn btn-success" type="submit">Crear Persona</button>
                             </form>
@@ -29,6 +39,17 @@
                         <div class="flex-shrink-0">
                             <form asp-action="EditPerson" asp-controller="CondominosPerson">
                                 <button class="btn btn-success" type="submit">Editar Persona</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:150px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="GetCondominios" asp-controller="Condominios">
+                                <button class="btn btn-success" type="submit">Lista de Condominios</button>
                             </form>
                         </div>
                     </div>
@@ -54,12 +75,34 @@
                     </div>
                 </div>
 
-                
+
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:130px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="GetVisita" asp-controller="Visitas">
+                                <button class="btn btn-success" type="submit">Lista de Visitas</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col">
                     <div class="card shadow-sm" style="width:130px">
                         <div class="flex-shrink-0">
                             <form asp-action="CreateVisita" asp-controller="Visitas">
                                 <button class="btn btn-success" type="submit">Crear Visitas</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:130px">
+                        <div class="flex-shrink-0">
+                            <form asp-action="EditVisita" asp-controller="Visitas">
+                                <button class="btn btn-success" type="submit">Editar Visitas</button>
                             </form>
                         </div>
                     </div>
@@ -71,51 +114,51 @@
 
 
 
-@*
+    @*
     <div class="text-center">
-        <div class="container">
-            <form asp-action="Create" asp-controller="Home">
-                <button class="btn btn-success" type="submit">Registrar Entrada</button>
-                <button class="btn btn-danger" type="submit">Registrar Salida</button>
-            </form>
-            <hr />
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="container">
+    <form asp-action="Create" asp-controller="Home">
+    <button class="btn btn-success" type="submit">Registrar Entrada</button>
+    <button class="btn btn-danger" type="submit">Registrar Salida</button>
+    </form>
+    <hr />
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-                <div class="col">
-                    <div class="card shadow-sm" style="width:252px">
-                        <div class="flex-shrink-0">
-                            <h2 class="card-text" style="color: black">Condominio Escazú</h2>
-                            <img src="~/img/escazu.jpg" class="card-img-top" alt="..." style="width:250px">
-                            <hr />
-                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Escazu</button>
-                        </div>
-                    </div>
-                </div>
+    <div class="col">
+    <div class="card shadow-sm" style="width:252px">
+    <div class="flex-shrink-0">
+    <h2 class="card-text" style="color: black">Condominio Escazú</h2>
+    <img src="~/img/escazu.jpg" class="card-img-top" alt="..." style="width:250px">
+    <hr />
+    <button class="btn btn-success" type="submit">Ingresar a Condiminio Escazu</button>
+    </div>
+    </div>
+    </div>
 
-                <div class="col">
-                    <div class="card shadow-sm" style="width:252px">
-                        <div class="flex-shrink-0">
-                            <h2 class="card-text" style="color: black">Condominio Alajuela</h2>
-                            <img src="~/img/alajuela.jpg" class="card-img-top" alt="..." style="width:250px">
-                            <hr />
-                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Alajuela</button>
-                        </div>
-                    </div>
-                </div>
+    <div class="col">
+    <div class="card shadow-sm" style="width:252px">
+    <div class="flex-shrink-0">
+    <h2 class="card-text" style="color: black">Condominio Alajuela</h2>
+    <img src="~/img/alajuela.jpg" class="card-img-top" alt="..." style="width:250px">
+    <hr />
+    <button class="btn btn-success" type="submit">Ingresar a Condiminio Alajuela</button>
+    </div>
+    </div>
+    </div>
 
-                <div class="col">
-                    <div class="card shadow-sm" style="width:252px">
-                        <div class="flex-shrink-0">
-                            <h2 class="card-text" style="color: black">Condominio Heredia</h2>
-                            <img src="~/img/heredia.jpg" class="card-img-top" alt="..." style="width:250px">
-                            <hr />
-                            <button class="btn btn-success" type="submit">Ingresar a Condiminio Heredia</button>
-                        </div>
-                    </div>
-                </div>
+    <div class="col">
+    <div class="card shadow-sm" style="width:252px">
+    <div class="flex-shrink-0">
+    <h2 class="card-text" style="color: black">Condominio Heredia</h2>
+    <img src="~/img/heredia.jpg" class="card-img-top" alt="..." style="width:250px">
+    <hr />
+    <button class="btn btn-success" type="submit">Ingresar a Condiminio Heredia</button>
+    </div>
+    </div>
+    </div>
 
-            </div>
-        </div>
+    </div>
+    </div>
     </div>*@
 </body>
 

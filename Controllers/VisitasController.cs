@@ -11,6 +11,15 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult EditVisita()
+        {
+            return View();
+        }
+        public ActionResult GetVisita()
+        {
+            return View();
+        }
+
         // GET: VisitsController/Details/5
         public ActionResult Details(int id)
         {

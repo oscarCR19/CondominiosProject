@@ -1,16 +1,16 @@
 ﻿@{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Edit";
 }
 
 <link rel="stylesheet" href="/css/Style.css">
 <body>
 	<div class="text-center">
-		<h1 class="display-4" style="color: white">Crear Visita</h1>
+		<h1 class="display-4" style="color: white">Editar Visita</h1>
 	</div>
 	<div class="login-wrap">
-		<form asp-controller="Login" asp-action="SaveVisita">
+		<form asp-controller="Login" asp-action="UpdateVisita">
 			<div class="login-html">
-				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Crear Visita</label>
+				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Editar Visita</label>
 
 				<div class="login-form">
 					<div class="sign-in-htm">
@@ -78,7 +78,7 @@
 						</div>
 
 						<div class="group">
-							<input type="submit" class="button" value="Guardar Visita">
+							<input type="submit" class="button" value="Actualizar Visita">
 						</div>
 
 					</div>
