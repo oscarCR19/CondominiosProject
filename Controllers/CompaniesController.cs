@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto.Models;
+using System.Numerics;
 
 namespace Proyecto.Controllers
 {
@@ -12,6 +14,42 @@ namespace Proyecto.Controllers
         }
 
         // GET: CompaniesController/Details/5
+
+        public ActionResult InsertCompany(string txtNombre,string txtDirrec, string txtCedJur, string txtTelefono, string txtCorreo, string txtContra, IFormFile logo)
+        {
+            string nameLogo = txtCedJur + ".Jpg";
+
+            using (var stream = new FileStream(Directory.GetCurrentDirectory() + "\\wwwroot\\logos"+nameLogo,FileMode.Create))
+            {
+                logo.CopyTo(stream);
+            }
+
+            Company company = new Company()
+
+            {
+                Name = txtNombre,
+                Location = txtDirrec,
+                CedJur = txtTelefono,
+                Phone = txtTelefono,
+                Email = txtCorreo,
+                Password = txtContra,
+                Logo = "\\wwwroot\\logos" + nameLogo
+            };
+
+            
+
+            if (Companies.Companies.ValidateCompany(txtCorreo, txtCedJur) != null)
+            {
+                ViewBag.Message = "EL correo o la cédula jurídica se encuentra registrada";
+                return View("companies");
+            }else
+                 
+            Companies.Companies.InsertCompanie(company);
+
+            return View();
+        }
+
+
         public ActionResult Details(int id)
         {
             return View();
