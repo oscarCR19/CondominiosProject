@@ -1,12 +1,15 @@
-﻿namespace Proyecto.Persons
+﻿using System.Data.SqlClient;
+using System.Data;
+using Proyecto.DatabaseHelper;
+using Proyecto.Models;
+
+namespace Proyecto.Persons
 {
     public class Persons
     {
-
         public void InserPerson()
         {
-            //codigo a desarrollar
-            //Llamados a databate con sus respectivos sp
+           
         }
 
         public void GetPerson()
@@ -15,10 +18,29 @@
             //Llamados a databate con sus respectivos sp
         }
 
-        public void ValidatePerson()
+        public static Person ValidatePerson(String usuario,string contra)
         {
-            //Codigo a desarrollar
-            //Llamados a databate con sus respectivos sp
+            List<SqlParameter> paramList = new List<SqlParameter>()
+            {
+
+                new SqlParameter("pUsuario",usuario),
+                new SqlParameter("pContraseña",contra)
+
+
+            };
+
+
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spValidarPersonas", paramList);
+            
+            Person person = new Person();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                person.User = dr["usuario"].ToString();
+                person.Password = dr["contra"].ToString();
+             
+            }
+            return person;
         }
 
     }

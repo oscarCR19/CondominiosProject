@@ -6,6 +6,7 @@ using Proyecto.Models;
 using Proyecto.DatabaseHelper;
 //using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace Proyecto.Controllers
 {
@@ -17,14 +18,19 @@ namespace Proyecto.Controllers
            return View();
         }
 
-        //Ejemplo de manejo del backen en el controlador
+        
 
-       /* public ActionResult ValidateLogin(string txtUsuario,string txt Contrasena)
+        public ActionResult ValidateLogin(string txtUsuario,string txtContra)
         {
-            Persons.Persons.ValidatePerson();
+            if(Persons.Persons.ValidatePerson(txtUsuario, txtContra) == null)
+            {
+                ViewBag.Message = "Error en el usuario o contraseña";
+                return View("login");
+            }
             
-            return View();
-        }*/
+            
+            return RedirectToAction("Index","Home");
+        }
         
 
         // GET: LoginController/Details/5
