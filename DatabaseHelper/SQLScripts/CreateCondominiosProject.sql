@@ -36,8 +36,17 @@ Create table Empresas(
 	tel Varchar(15) NOT NULL,
 	correo Varchar(50) NOT NULL,
 	logo Varchar(100) NOT NULL,
-	cedJuridica Varchar(200) NOT NULL
+	cedJuridica Varchar(200) NOT NULL,
+	contra Varchar(40) NOT NULL
 	Constraint pk_Empresas Primary key(id_Empre),
+);
+
+Create table AdminPorEmpresas(
+    id_Person Int NOT NULL,
+    id_Empre Int NOT NULL,
+    Constraint pk_AdminPorEmpresas Primary key(id_Person,id_Empre),
+    Constraint fk_AdminPorEmpresas Foreign key(id_Person) references Personas(id_Person),
+    Constraint fk_AdminPorEmpresas2 Foreign key(id_Empre) references Empresas(id_Empre)
 );
 
 Create table Condominios(

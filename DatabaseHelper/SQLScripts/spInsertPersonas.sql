@@ -20,5 +20,5 @@ BEGIN
 	VALUES (@id_Rol, @ced, @nombre1, @nombre2, @apellido1, @apellido2, @telef, @correo, @usuario, @contra)
 END
 
-EXEC spInsertPersonas 2,'117850521','leandro','vargas valverde','62166673','leandro9700@gmail.com','lvargasva','leandro123'
-EXEC spInsertPersonas 3,'119340759','Jose Andres','Bogantes','88625329','jose.bogantes2016@gmail.com','jandresb','bE3XiWw='
+EXEC spInsertPersonas 2,'117850521','leandro','martin','vargas','valverde','62166673','leandro9700@gmail.com','lvargasva','leandro123'
+EXEC spInsertPersonas 3,'119340759','Jose','Andres','Bogantes','Salazar','88625329','jose.bogantes2016@gmail.com','jandresb','bE3XiWw='

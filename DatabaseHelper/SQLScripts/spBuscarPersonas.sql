@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE [dbo].[spBuscarPersonas]
 
 AS
 	BEGIN
-		SELECT * FROM [dbo].[Personas] p WHERE p.nombre LIKE '%' + @filtro + '%'
+		SELECT * FROM [dbo].[Personas] p WHERE p.nombre1 LIKE '%' + @filtro + '%'
 END
 GO
 
