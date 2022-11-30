@@ -16,6 +16,11 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult GetPerson()
+        {
+            return View();
+        }
+
         // GET: CondominiosPersonController/Create
         public ActionResult Create()
         {

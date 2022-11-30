@@ -16,6 +16,11 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult GetCondominios()
+        {
+            return View();
+        }
+
         // GET: CondominiosController/Details/5
         public ActionResult Details(int id)
         {
