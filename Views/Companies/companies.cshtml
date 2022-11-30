@@ -14,94 +14,22 @@
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
-
+                           
                             <div class="mb-md-5 mt-md-4 pb-5">
 
-                                <h2 class="fw-bold mb-2 text-uppercase">Ingresar</h2>
 
-                                <p class="text-white-50 mb-5">Credenciales de usuario</p>
-                                <div class="row">
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Primer Nombre</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Segundo Nombre</label>
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Primer Apellido </label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Segundo Apellido</label>
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="form-outline form-white mb-4">
-                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typeEmailX">Correo</label>
-                                </div>
-
-
-                                <div class="row">
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Telefono</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Cédula</label>
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-
+                                <form asp-action="InsertCompany" asp-controller="Companies" method="POST" enctype="multipart/form-data">
 
 
                                 <p class="text-white-50 mb-5">Credenciales de la empresa</p>
 
                                 <div class="form-outline form-white mb-4">
-                                    <input type="text" id="typeEmailX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typeEmailX">Nombre</label>
+                                    <input type="text" name="txtNombre" id="txtNombre" class="form-control form-control-lg" />
+                                    <label class="form-label" for="typeEmailX">Nombre Empresa</label>
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    <input type="text" id="typeEmailX" class="form-control form-control-lg" />
+                                    <input type="text" name="txtDirrec" id="txtDirrec" class="form-control form-control-lg" />
                                     <label class="form-label" for="typeEmailX">Dirección</label>
                                 </div>
 
@@ -109,7 +37,7 @@
 
                                     <div class="col">
                                         <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
+                                            <input type="text" name="txtCedJur" id="txtCedJur" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX">Cédula Juridica</label>
                                         </div>
 
@@ -117,7 +45,7 @@
 
                                     <div class="col">
                                         <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" class="form-control form-control-lg" />
+                                            <input name="txtTelefono" type="text" id="txtTelefono" class="form-control form-control-lg" />
                                             <label class="form-label" for="typeEmailX">Teléfono</label>
                                         </div>
 
@@ -127,6 +55,21 @@
 
                                 </div>
 
+                                <div class="form-outline form-white mb-4">
+                                    <input type="text" name="txtCorreo" id="txtCorreo" class="form-control form-control-lg" />
+                                    <label class="form-label" for="typeEmailX">Correo</label>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" name="txtContra" id="txtContra" class="form-control form-control-lg" />
+                                    <label class="form-label" for="typeEmailX">Contraseña</label>
+                                </div>
+
+                                <label class="form-label" for="typeEmailX">Logo</label>
+                                <div class="file-upload-wrapper">
+                                        <input type="file" name="logo" class="form-control" />
+                                 </div>
+
 
 
 
@@ -134,13 +77,11 @@
 
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Ingresar</button>
 
+                                </form>
+
                             </div>
 
-                            <div>
-                                <p class="mb-0">
-                                    Desea registrar su empresa? <a href="#!" class="text-white-50 fw-bold">Registrar</a>
-                                </p>
-                            </div>
+                            
 
                         </div>
                     </div>
