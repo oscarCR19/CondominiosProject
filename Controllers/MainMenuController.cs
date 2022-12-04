@@ -6,7 +6,7 @@ namespace Proyecto.Controllers
     public class MainMenuController : Controller
     {
         // GET: MainMenuController
-        public ActionResult Index()
+        public ActionResult mainmenu()
         {
             return View();
         }
