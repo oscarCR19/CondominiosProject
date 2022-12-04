@@ -20,16 +20,17 @@ namespace Proyecto.Controllers
 
         
 
-        public ActionResult ValidateLogin(string txtUsuario,string txtContra)
+        public ActionResult ValidateLogin(string txtUsuario,string txtPassword)
         {
-            if(Persons.Persons.ValidatePerson(txtUsuario, txtContra) == null)
+
+            if (Persons.Persons.ValidatePerson(txtUsuario, txtPassword).User ==null)
             {
                 ViewBag.Message = "Error en el usuario o contraseña";
                 return View("login");
             }
             
             
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("mainmenu","MainMenu");
         }
         
 
