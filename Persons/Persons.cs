@@ -23,8 +23,8 @@ namespace Proyecto.Persons
             List<SqlParameter> paramList = new List<SqlParameter>()
             {
 
-                new SqlParameter("pUsuario",usuario),
-                new SqlParameter("pContraseña",contra)
+                new SqlParameter("usuario",usuario),
+                new SqlParameter("contra",contra)
 
 
             };
