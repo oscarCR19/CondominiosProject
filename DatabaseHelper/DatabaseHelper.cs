@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace Proyecto.DatabaseHelper
 {
     public class DatabaseHelper
     {
-        const string servidor = @"localhost";
-        const string baseDatos = "CondiminiosProject";
-        const string strConexion = "Data Source=" + servidor + ";Initial Catalog=" + baseDatos + ";Integrated Security=True";
+       Credentials.Credentials credentials= new Credentials.Credentials();
+       
+       const string servidor = "PC";
+       const string baseDatos = "CondominiosProject";
+       const string strConexion = "Data Source=" + servidor + ";Initial Catalog=" + baseDatos + ";Integrated Security=True";
 
         //Para select 
         public static DataTable ExecuteStoreProcedure(string procedure, List<SqlParameter> param)
