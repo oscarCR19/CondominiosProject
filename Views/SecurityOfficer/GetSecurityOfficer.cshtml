@@ -1,11 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Get Personas";
+    ViewData["Title"] = "Get Oficiales de Seguridad";
 }
 
 <link rel="stylesheet" href="/css/StyleHTML.css">
 <body>
     <div class="text-center">
-        <h1 class="display-4" style="color: darkblue">Lista de Condóminos</h1>
+        <h1 class="display-4" style="color: darkblue">Lista de Oficiales de Seguridad</h1>
     </div>
     <div class="text-center">
         <form asp-action="mainmenu" asp-controller="MainMenu">
@@ -37,33 +37,34 @@
                 </thead>
                 <tbody>
                     @*@foreach (var @item in @ViewBag)*@
-                   @* {*@
-                        <tr>
-                            <td style="display:none;">item</td>
-                            <td>item</td>
-                            <td>item</td>
-                            <td>item</td>
-                            <td>item</td>
-                            <td>item</td>
-                            <td>
-                                <div class="d-grid gap-2 col-6 mx-auto">
-                                    <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                        <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-grid gap-2 col-6 mx-auto">
-                                    <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                    @* {*@
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>item</td>
+                        <td>item</td>
+                        <td>item</td>
+                        <td>item</td>
+                        <td>item</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
                     @*}*@
                 </tbody>
             </table>
         </div>
     </div>
 </body>
+
 

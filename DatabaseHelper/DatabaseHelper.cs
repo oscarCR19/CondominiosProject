@@ -12,7 +12,7 @@ namespace Proyecto.DatabaseHelper
     {
        Credentials.Credentials credentials= new Credentials.Credentials();
        
-       const string servidor = "PC";
+       const string servidor = "DESKTOP-DLLS4QS";
        const string baseDatos = "CondominiosProject";
        const string strConexion = "Data Source=" + servidor + ";Initial Catalog=" + baseDatos + ";Integrated Security=True";
 

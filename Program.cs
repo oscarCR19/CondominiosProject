@@ -16,14 +16,6 @@ builder.Services.AddSession(options =>
 });
 
 
-
-
-
-
-
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,6 +37,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=login}/{id?}");
+    pattern: "{controller=Login}/{action=login2}/{id?}");
 
 app.Run();

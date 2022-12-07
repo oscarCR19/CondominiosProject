@@ -18,7 +18,12 @@ namespace Proyecto.Controllers
            return View();
         }
 
-        
+        public ActionResult login2()
+        {
+            return View();
+        }
+
+
 
         public ActionResult ValidateLogin(string txtUsuario,string txtPassword)
         {
@@ -26,7 +31,7 @@ namespace Proyecto.Controllers
             if (Persons.Persons.ValidatePerson(txtUsuario, txtPassword).User ==null)
             {
                 ViewBag.Message = "Error en el usuario o contraseña";
-                return View("login");
+                return View("login2");
             }
             
             
