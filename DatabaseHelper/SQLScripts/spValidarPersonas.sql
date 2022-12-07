@@ -14,3 +14,4 @@ AS
 		AND pp.contra = @contra
 
 	END
+

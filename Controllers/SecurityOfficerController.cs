@@ -11,6 +11,11 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult GetSecurityOfficer()
+        {
+            return View();
+        }
+
         // GET: SecurityOfficerController/Details/5
         public ActionResult Details(int id)
         {
