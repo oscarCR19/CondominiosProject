@@ -27,7 +27,7 @@ namespace Proyecto.Companies
         }
         
 
-
+        //este método valida el registro de una empresa; valida que no se repitan los datos
         public static Company ValidateCompany(string email, string cedJur)
         {
             
@@ -55,5 +55,36 @@ namespace Proyecto.Companies
             return company;
         }
 
-   }
+
+        //este metodo valida el login de una empresa
+        public static Company ValidateLoginCompany(string correo, string contra)
+        {
+
+
+            List<SqlParameter> paramList = new List<SqlParameter>()
+              {
+                 new SqlParameter("correo",correo),
+                 new SqlParameter("contra",contra),
+
+
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spValidarEmpresas", paramList);
+            Company company = new Company();
+            foreach (DataRow dr in ds.Rows)
+            {
+                company.Name = dr["nombre"].ToString();
+                company.Location = dr["direc"].ToString();
+                company.Phone = dr["tel"].ToString();
+                company.Email = dr["correo"].ToString();
+                company.Logo = dr["logo"].ToString();
+                company.CedJur = dr["cedJuridica"].ToString();
+                company.Password = dr["contra"].ToString();
+            }
+
+            return company;
+        }
+
+
+
+    }
 }
