@@ -12,3 +12,6 @@ AS
 		WHERE (e.correo = @correo
 		AND e.contra = @contra)
 	END
+
+
+	insert into dbo.Empresas(nombre,direc,tel,correo,logo,cedJuridica,contra) values ('Primer condominio','Los lagos','71080791','oscarmora2006@gmail.com','','206950784','hola');
