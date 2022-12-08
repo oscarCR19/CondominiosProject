@@ -3,30 +3,29 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Proyecto.Controllers
 {
-    public class MainMenuController : Controller
+    public class DashboardPersonController : Controller
     {
-        // GET: MainMenuController
-        public ActionResult mainmenu()
+        // GET: DashboardPersonController
+        public ActionResult dasboardperson()
         {
-
-            string session = HttpContext.Session.GetString("userCompanySession");
+            string session = HttpContext.Session.GetString("userPersonSession");
             ViewBag.Session = session;
             return View();
         }
 
-        // GET: MainMenuController/Details/5
+        // GET: DashboardPersonController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: MainMenuController/Create
+        // GET: DashboardPersonController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MainMenuController/Create
+        // POST: DashboardPersonController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -41,13 +40,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: MainMenuController/Edit/5
+        // GET: DashboardPersonController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: MainMenuController/Edit/5
+        // POST: DashboardPersonController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -62,13 +61,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: MainMenuController/Delete/5
+        // GET: DashboardPersonController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: MainMenuController/Delete/5
+        // POST: DashboardPersonController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

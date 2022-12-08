@@ -13,7 +13,7 @@
 
 <body>
     <div class="login-wrap">
-        <form asp-action="ValidateLogin" asp-controller="Login" method="POST">
+        <form asp-action="ValidatePersonLogin" asp-controller="Login" method="POST">
             <div class="login-html">
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Person</label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Company</label>
@@ -30,11 +30,11 @@
 
                         <div class="group">
                             <label for="user" class="label">Username</label>
-                            <input id="user" type="text" name="txtUsuario" value="lvargasva" class="input" required>
+                            <input id="user" type="text" name="txtUsuario" value="206950784" class="input" required>
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" name="txtPassword" value="leandro123" class="input" data-type="password" required>
+                            <input id="pass" type="password" name="txtPassword" value="hola" class="input" data-type="password" required>
                         </div>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>
@@ -50,23 +50,23 @@
                     </div>
         </form>
 
-        <form asp-action="ValidateLogin" asp-controller="Login" method="POST">
+        <form asp-action="ValidateCompanyLogin" asp-controller="Login" method="POST">
             @if (@ViewBag.Message == "Error en el usuario o contraseña")
             {
                 <div class="alert alert-danger" role="alert">
                     @ViewBag.Message
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"  aria-label="Close"></button>
                 </div>
             }
 
             <div class="sign-up-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" name="txtUsuario" value="jandresb" class="input" required>
+                    <label for="user" class="label">Correo</label>
+                    <input id="txtCorreo" type="email" name="txtCorreo" value="oscarmora2006@gmail.com" class="input" required>
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" name="txtPassword" value="bE3XiWw=" class="input" data-type="password" required>
+                    <input id="txtPassword" type="password" name="txtPassword" value="hola" class="input" data-type="password" required>
                 </div>
                 <div class="group">
                     <input id="check" type="checkbox" class="check" checked>

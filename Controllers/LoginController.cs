@@ -25,7 +25,7 @@ namespace Proyecto.Controllers
 
 
 
-        public ActionResult ValidateLogin(string txtUsuario,string txtPassword)
+        public ActionResult ValidatePersonLogin(string txtUsuario,string txtPassword)
         {
 
             if (Persons.Persons.ValidatePerson(txtUsuario, txtPassword).User ==null)
@@ -33,11 +33,27 @@ namespace Proyecto.Controllers
                 ViewBag.Message = "Error en el usuario o contraseña";
                 return View("login2");
             }
-            
-            
-            return RedirectToAction("mainmenu","MainMenu");
+
+            HttpContext.Session.SetString("userPersonSession", txtUsuario);
+            return RedirectToAction("dasboardperson", "DashboardPerson");
         }
-        
+
+        public ActionResult ValidateCompanyLogin(string txtCorreo, string txtPassword)
+        {
+
+            if (Companies.Companies.ValidateLoginCompany(txtCorreo, txtPassword).CedJur == null)
+            {
+                ViewBag.Message = "Error en el usuario o contraseña";
+                return View("login2");
+            }
+
+            HttpContext.Session.SetString("userCompanySession", Companies.Companies.ValidateLoginCompany(txtCorreo, txtPassword).CedJur);
+            return RedirectToAction("mainmenu", "MainMenu");
+        }
+
+
+
+
 
         // GET: LoginController/Details/5
         public ActionResult Details(int id)
