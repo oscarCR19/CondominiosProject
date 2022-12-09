@@ -1,11 +1,11 @@
-body {
+﻿body {
     height: 400px;
-    background-color:lightblue;
+    background-color: mediumblue;
     background-size: cover;
     background-repeat: repeat;
     background-position: center center;
     margin: 0;
-    color: lightblue;
+    color: mediumblue;
     font: 600 16px/18px 'Open Sans',sans-serif;
     */
 }
