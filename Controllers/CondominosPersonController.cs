@@ -5,7 +5,7 @@ namespace Proyecto.Controllers
 {
     public class CondominosPersonController : Controller
     {
-        // GET: CondominiosPersonController
+        // GET: CondominosPersonController
         public ActionResult CreatePerson()
         {
             return View();
