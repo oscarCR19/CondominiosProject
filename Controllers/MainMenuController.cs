@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Policy;
+
+
 
 namespace Proyecto.Controllers
 {
@@ -10,6 +13,7 @@ namespace Proyecto.Controllers
         {
 
             string session = HttpContext.Session.GetString("userCompanySession");
+             
             ViewBag.Session = session;
             return View();
         }
