@@ -2,10 +2,169 @@
     ViewData["Title"] = "Get Condominios";
 }
 
+<link rel="stylesheet" href="/css/Style.css">
 <body>
     <div class="text-center">
         <h1 class="display-4" style="color: darkblue">Lista de Condominios</h1>
     </div>
-    
+    <div class="text-center">
+        <form asp-action="mainmenu" asp-controller="MainMenu">
+            <button class="btn btn-success" type="submit">Menú Principal</button>
+        </form>
+    </div>
+    <br />
+
+    <div class="text-center">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                @* @foreach (var @condominios in @ViewBag.condominios)
+                {*@
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">Código: 2588</p>
+                            <p class="card-text">Nombre: Condominios Escazú</p>
+                            <p class="card-text">Dirección: Escazú</p>
+                            <p class="card-text">Teléfono: 25662546</p>
+
+                            <div class="text-center">
+                                <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-IdMovie="">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* }*@
+            </div>
+        </div>
+    </div>
 
 </body>
