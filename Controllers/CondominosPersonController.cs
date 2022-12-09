@@ -1,13 +1,45 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
     public class CondominosPersonController : Controller
     {
         // GET: CondominiosPersonController
-        public ActionResult CreatePerson()
+        public ActionResult CreatePerson(string txtIdRol,
+                                            string txtCed,
+                                            string txtNombre1,
+                                            string txtNombre2,
+                                            string txtApellido1,
+                                            string txtApellido2, 
+                                            string txtTelefono,
+                                            string txtCorreo,
+                                            string txtContra)
         {
+            Person person = new Person()
+            {
+                Id_Rol=Convert.ToInt32(txtIdRol),
+                Ced=txtCed,
+                FirstName=txtNombre1,
+                MiddleName=txtNombre2,
+                LastName1=txtApellido1,
+                LastName2=txtApellido2,
+                Phone=txtTelefono,
+                Email=txtCorreo,
+                User=txtCed,
+                Password=txtContra
+            };
+            if (Persons.Persons.ValidatePerson(txtCed, txtCorreo, txtTelefono).Count != 0)
+            {
+                
+                return View();
+            }
+            else
+
+                Persons.Persons.InserPerson(person);
+
+            ////falta retornar la vista
             return View();
         }
 

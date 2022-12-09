@@ -28,7 +28,7 @@ namespace Proyecto.Controllers
         public ActionResult ValidatePersonLogin(string txtUsuario,string txtPassword)
         {
 
-            if (Persons.Persons.ValidatePerson(txtUsuario, txtPassword).User ==null)
+            if (Persons.Persons.ValidateLoginPerson(txtUsuario, txtPassword).User ==null)
             {
                 ViewBag.Message = "Error en el usuario o contraseña";
                 return View("login2");
