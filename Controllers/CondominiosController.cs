@@ -1,13 +1,27 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto.Models;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Proyecto.Controllers
 {
     public class CondominiosController : Controller
     {
         // GET: CondominiosController
-        public ActionResult CreateCondominios()
+        public ActionResult CreateCondominios(Condominium condominio)
         {
+                List<SqlParameter> param = new List<SqlParameter>()
+                {
+                    new SqlParameter("@id_Empre" , condominio.Id),
+                    new SqlParameter("@nombre", condominio.Name),
+                    new SqlParameter("@direccion", condominio.Address),
+                    new SqlParameter("@tel", condominio.Address),
+                    new SqlParameter("@photo", condominio.Logo)
+                };
+                DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure
+                ("spCrearCondominios", param);
+
             return View();
         }
 
@@ -16,9 +30,10 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult GetCondominios()
+        public IActionResult GetCondominios()
         {
-            return View();
+            ViewBag.Condominios = Condominios.Condominios.GetCondominios();
+            return RedirectToAction("GetCondominios","Condominios");
         }
 
         // GET: CondominiosController/Details/5

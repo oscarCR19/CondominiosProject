@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto.Models;
 
@@ -6,6 +6,7 @@ namespace Proyecto.Controllers
 {
     public class CondominosPersonController : Controller
     {
+
         // GET: CondominiosPersonController
         public ActionResult CreatePerson(string txtIdRol,
                                             string txtCed,
@@ -16,7 +17,7 @@ namespace Proyecto.Controllers
                                             string txtTelefono,
                                             string txtCorreo,
                                             string txtContra)
-        {
+            {
             Person person = new Person()
             {
                 Id_Rol=Convert.ToInt32(txtIdRol),

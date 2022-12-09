@@ -7,6 +7,12 @@
     <div class="text-center">
         <h1 class="display-4" style="color: white">Editar Personas</h1>
     </div>
+    <div class="text-center">
+        <form asp-action="GetPerson" asp-controller="CondominosPerson">
+            <button class="btn btn-success" type="submit">Regresar</button>
+        </form>
+    </div>
+    <br />
     <div class="login-wrap">
         <form asp-controller="Login" asp-action="UpdatePerson">
             <div class="login-html">
@@ -30,7 +36,7 @@
                             <div class="col">
                                 <div class="group">
                                     <label for="SegundoNombre" class="label">Segundo Nombre</label>
-                                    <input id="SegundoNombre" type="text" name="txtSegundoNombre" class="input" required>
+                                    <input id="SegundoNombre" type="text" name="txtSegundoNombre" class="input">
                                 </div>
                             </div>
                         </div>
@@ -57,6 +63,10 @@
                         <div class="group">
                             <label for="Correo" class="label">Correo</label>
                             <input id="Correo" type="email" name="txtCorreo" class="input" required>
+                        </div>
+                        <div class="group">
+                            <label for="Password" class="label">Password</label>
+                            <input id="Password" type="Password" name="txtPassword" class="input" required>
                         </div>
                         <div class="group">
                         </div>
