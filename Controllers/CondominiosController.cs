@@ -14,17 +14,42 @@ namespace Proyecto.Controllers
             return View();
         }
         // GET: CondominiosController      
-        public ActionResult EditCondominios()
+        public IActionResult EditCondominios(int Id)
         {
-            return View();
-        }
+            Condominium condominium = new Condominium()
+            {
+                Id = Convert.ToInt64(Id)
+            };
 
+            ViewBag.Condominios = Condominios.Condominios.GetIDCondominio(Id);
+            return View();
+        }       
+        public IActionResult DeleteCondominios(int Id)
+        {
+            Condominium condominium = new Condominium()
+            {
+                Id = Convert.ToInt64(Id)
+            };
+
+            ViewBag.Condominios = Condominios.Condominios.GetIDCondominio(Id);
+            return View();
+
+        }
+        public IActionResult DeleteIDCondominio(int Id)
+        {
+            Condominium condominium = new Condominium()
+            {
+                Id = Convert.ToInt64(Id)
+            };
+
+            ViewBag.Condominios = Condominios.Condominios.DeleteCondominio(Id);
+            return RedirectToAction("GetCondominios", "Condominios");
+        }
         public IActionResult GetCondominios()
         {
             ViewBag.Condominios = Condominios.Condominios.GetCondominios();
             return View();
         }
-
         // GET: CondominiosController/Details/5
         public ActionResult Details(int id)
         {
@@ -73,16 +98,23 @@ namespace Proyecto.Controllers
             Condominios.Condominios.CreateCondominio(condominium);
             return RedirectToAction("GetCondominios", "Condominios");
         }
-        public ActionResult Edit(int id, IFormCollection collection)
+        public IActionResult SaveEditCondominio(IFormFile photo, string txtId, string txtNombre, string txtDireccion, string txtPhone)
         {
-            try
+            string nombreArchivo = photo.FileName;
+            string rutaArchivo = Directory.GetCurrentDirectory() + @"\wwwroot\img\condominios\" + nombreArchivo;
+
+            photo.CopyTo(new FileStream(rutaArchivo, FileMode.Create));
+
+            Condominium condominium = new Condominium()
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+                Id = Convert.ToInt64(txtId),
+                Name = txtNombre,
+                Address = txtDireccion,
+                Phone = txtPhone,
+                Logo = "/img/condominios/" + nombreArchivo
+            };
+            Condominios.Condominios.EditCondominio(condominium);
+            return RedirectToAction("GetCondominios", "Condominios");
         }
 
         // GET: CondominiosController/Delete/5

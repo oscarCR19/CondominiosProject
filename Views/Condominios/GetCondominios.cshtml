@@ -19,8 +19,8 @@
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </form>
         </div>
+        <br />
     </div>
-
     <div class="text-center">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -41,8 +41,14 @@
                                 <p class="card-text">@item.Phone</p>
 
                                 <div class="text-center">
-                                    <form asp-action="EditCondominios" asp-controller="Condominios">
+                                    <form asp-action="EditCondominios" asp-controller="Condominios" asp-route-Id="@item.Id">
                                         <button class="btn btn-primary" type="submit">Edit</button>
+                                    </form>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <form asp-action="DeleteCondominios" asp-controller="Condominios" asp-route-id="@item.Id">
+                                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                                     </form>
                                 </div>
                             </div>
