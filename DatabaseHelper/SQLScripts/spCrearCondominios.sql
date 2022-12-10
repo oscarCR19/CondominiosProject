@@ -3,7 +3,6 @@ GO
 
 CREATE OR ALTER PROCEDURE [dbo].[spCrearCondominios]
 	@id_Empre INT,
-	@codigo Varchar(30),
 	@nombre Varchar(30),
 	@direccion Varchar(100),
 	@tel Varchar(15),
@@ -12,7 +11,6 @@ AS
 	BEGIN
 		INSERT INTO Condominios(
 			id_Empre,
-			codigo,
 			nombre,
 			direccion,
 			tel,
@@ -20,7 +18,6 @@ AS
 
 		VALUES(
 			@id_Empre,
-			@codigo,
 			@nombre,
 			@direccion,
 			@tel,
