@@ -1,38 +1,48 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
-    public class DashboardPersonController : Controller
+    public class CompanyViewController : Controller
     {
-        // GET: DashboardPersonController
-        public ActionResult dasboardperson()
+        // GET: CompanyViewController
+        public ActionResult companyview()
         {
-            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userPersonSession")))
-            {
-                ViewBag.Session = HttpContext.Session.GetString("userPersonSession");
-                return View();
 
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession")))
+            {       //este objeto es para tener una empresa donde tomar ids
+                Company company = new Company();
+                company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+
+                ViewBag.CondominiosList= Condominios.Condominios.getListCondomonios(company.Id);
+                return View();
+            
             }
 
             return RedirectToAction("login2", "Login");
-
-            
         }
 
-        // GET: DashboardPersonController/Details/5
+
+        public ActionResult goToMainMenu()
+        {
+            return RedirectToAction("mainmenu", "MainMenu");
+        }
+
+        // GET: CompanyViewController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: DashboardPersonController/Create
+        // GET: CompanyViewController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DashboardPersonController/Create
+        // POST: CompanyViewController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -47,13 +57,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: DashboardPersonController/Edit/5
+        // GET: CompanyViewController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: DashboardPersonController/Edit/5
+        // POST: CompanyViewController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -68,13 +78,13 @@ namespace Proyecto.Controllers
             }
         }
 
-        // GET: DashboardPersonController/Delete/5
+        // GET: CompanyViewController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: DashboardPersonController/Delete/5
+        // POST: CompanyViewController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

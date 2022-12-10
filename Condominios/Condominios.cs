@@ -46,5 +46,36 @@ namespace Proyecto.Condominios
             }
             return condominiosList;
         }
+
+        //Metodo para obtener los condominios de determinada empresa
+        public static List<Condominium> getListCondomonios(int idEmpre)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+              {
+                 new SqlParameter("id",idEmpre),
+
+
+
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetCondominiosPorEmpresas", paramList);
+
+            List<Condominium> condominioList = new List<Condominium>();
+            Condominium condominio = new Condominium();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                condominio.Id = Convert.ToInt32(dr["id_Con"]);
+                condominio.Id_Company = Convert.ToInt32(dr["id_Empre"]);
+                condominio.Name = dr["nombre"].ToString();
+                condominio.Address = dr["direccion"].ToString();
+                condominio.Phone = dr["tel"].ToString();
+                condominio.Logo = dr["logo"].ToString();
+                condominioList.Add(condominio);
+            }
+
+            return condominioList;
+        }
+
+
     }
 }

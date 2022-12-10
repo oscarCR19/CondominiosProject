@@ -1,0 +1,47 @@
+﻿@{
+	ViewData["Title"] = "Create Vehiculo";
+}
+
+<link rel="stylesheet" href="/css/Style.css">
+<body>
+	<div class="text-center">
+		<h1 class="display-4" style="color: white">Crear Vehiculo</h1>
+	</div>
+	<div class="login-wrap">
+		<form asp-controller="Login" asp-action="SaveVehiculo">
+			<div class="login-html">
+				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Crear Vehiculos</label>
+
+				<div class="login-form">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="Placa" class="label">Placa</label>
+							<input id="Placa" type="text" name="txtPlaca" class="input" required>
+						</div>
+						<div class="group">
+							<label for="Marca" class="label">Marca Vehiculo</label>
+							<input id="Marca" type="text" name="txtMarca" class="input" required>
+						</div>
+						<div class="group">
+							<label for="Modelo" class="label">Modelo Vehiculo</label>
+							<input id="Modelo" type="text" name="txtModelo" class="input" required>
+						</div>
+						<div class="group">
+							<label for="Color" class="label">Color Vehiculo</label>
+							<input id="Color" type="text" name="txtColor" class="input" required>
+						</div>
+
+						<div class="group">
+						</div>
+
+						<div class="group">
+							<input type="submit" class="button" value="Guardar Vehiculo">
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
