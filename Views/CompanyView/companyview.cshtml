@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="stfyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DbExamen2.styles.css" asp-append-version="true" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        @foreach (var @item in @ViewBag.CondominiosList)
+        {
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <div class="text-center">
+                        <h3 style=" color:darkblue">@item.Name</h3>
+                    </div>
+                    <form asp-action="goToMainMenu" asp-controller="CompanyView">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="@item.Logo" alt="Lights" style="width:100%">
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        }
+        
+
+    </div>
+
+
+
+
+</body>
+</html>
