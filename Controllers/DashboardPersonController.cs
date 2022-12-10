@@ -8,9 +8,16 @@ namespace Proyecto.Controllers
         // GET: DashboardPersonController
         public ActionResult dasboardperson()
         {
-            string session = HttpContext.Session.GetString("userPersonSession");
-            ViewBag.Session = session;
-            return View();
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userPersonSession")))
+            {
+                ViewBag.Session = HttpContext.Session.GetString("userPersonSession");
+                return View();
+
+            }
+
+            return RedirectToAction("login2", "Login");
+
+            
         }
 
         // GET: DashboardPersonController/Details/5

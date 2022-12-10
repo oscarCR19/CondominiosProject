@@ -43,6 +43,7 @@ namespace Proyecto.Companies
             Company company = new Company();
             foreach (DataRow dr in ds.Rows)
             {
+                company.Id = Convert.ToInt32(dr["id_Empre"]);
                 company.Name = dr["nombre"].ToString();
                 company.Location = dr["direc"].ToString();
                 company.Phone = dr["tel"].ToString();
@@ -72,6 +73,7 @@ namespace Proyecto.Companies
             Company company = new Company();
             foreach (DataRow dr in ds.Rows)
             {
+                company.Id = Convert.ToInt32(dr["id_Empre"]);
                 company.Name = dr["nombre"].ToString();
                 company.Location = dr["direc"].ToString();
                 company.Phone = dr["tel"].ToString();
@@ -83,6 +85,8 @@ namespace Proyecto.Companies
 
             return company;
         }
+
+        
 
 
 
