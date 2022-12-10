@@ -8,23 +8,12 @@ namespace Proyecto.Controllers
 {
     public class CondominiosController : Controller
     {
-        // GET: CondominiosController
-        public ActionResult CreateCondominios(Condominium condominio)
+        // GET: CondominiosController/Create
+        public IActionResult CreateCondominios()
         {
-                List<SqlParameter> param = new List<SqlParameter>()
-                {
-                    new SqlParameter("@id_Empre" , condominio.Id),
-                    new SqlParameter("@nombre", condominio.Name),
-                    new SqlParameter("@direccion", condominio.Address),
-                    new SqlParameter("@tel", condominio.Address),
-                    new SqlParameter("@photo", condominio.Logo)
-                };
-                DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure
-                ("spCrearCondominios", param);
-
             return View();
         }
-
+        // GET: CondominiosController      
         public ActionResult EditCondominios()
         {
             return View();
@@ -33,17 +22,11 @@ namespace Proyecto.Controllers
         public IActionResult GetCondominios()
         {
             ViewBag.Condominios = Condominios.Condominios.GetCondominios();
-            return RedirectToAction("GetCondominios","Condominios");
+            return View();
         }
 
         // GET: CondominiosController/Details/5
         public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: CondominiosController/Create
-        public ActionResult Create()
         {
             return View();
         }
@@ -72,6 +55,24 @@ namespace Proyecto.Controllers
         // POST: CondominiosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public IActionResult SaveCondominios(IFormFile photo, string txtNombre, string txtDireccion, string txtPhone)
+        {
+            string nombreArchivo = photo.FileName;
+            string rutaArchivo = Directory.GetCurrentDirectory() + @"\wwwroot\img\condominios\" + nombreArchivo;
+
+            photo.CopyTo(new FileStream(rutaArchivo, FileMode.Create));
+
+            Condominium condominium = new Condominium()
+            {
+                Id_Company = 1,
+                Name = txtNombre,
+                Address = txtDireccion,
+                Phone = txtPhone,
+                Logo = "/img/condominios/" + nombreArchivo
+            };
+            Condominios.Condominios.CreateCondominio(condominium);
+            return RedirectToAction("GetCondominios", "Condominios");
+        }
         public ActionResult Edit(int id, IFormCollection collection)
         {
             try

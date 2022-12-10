@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="DatabaseHelper\SQL Scripts\" />
+    <Folder Include="wwwroot\img\condominios\" />
   </ItemGroup>
 
 </Project>
