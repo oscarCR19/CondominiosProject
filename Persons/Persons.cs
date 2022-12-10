@@ -86,5 +86,32 @@ namespace Proyecto.Persons
             return person;
         }
 
+        public static void updatePerson(Person person)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+
+                new SqlParameter("id_Rol",person.Id_Rol),
+                new SqlParameter("ced",person.Ced),
+                new SqlParameter("nombre1",person.FirstName),
+                new SqlParameter("nombre2",person.MiddleName),
+                new SqlParameter("apellido1",person.LastName2),
+                new SqlParameter("apellido2",person.LastName2),
+                new SqlParameter("telef",person.Phone),
+                new SqlParameter("correo",person.Email),
+                new SqlParameter("usuario",person.User),
+                new SqlParameter("contra",person.Password)
+
+
+            };
+
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("", param);//falta sp
+
+
+        }
+
+
+
+
     }
 }

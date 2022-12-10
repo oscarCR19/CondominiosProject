@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
@@ -8,7 +10,24 @@ namespace Proyecto.Controllers
         // GET: CompanyViewController
         public ActionResult companyview()
         {
-            return View();
+
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession")))
+            {       //este objeto es para tener una empresa donde tomar ids
+                Company company = new Company();
+                company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+
+                ViewBag.CondominiosList= Condominios.Condominios.getListCondomonios(company.Id);
+                return View();
+            
+            }
+
+            return RedirectToAction("login2", "Login");
+        }
+
+
+        public ActionResult goToMainMenu()
+        {
+            return RedirectToAction("mainmenu", "MainMenu");
         }
 
         // GET: CompanyViewController/Details/5

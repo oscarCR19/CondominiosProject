@@ -7,6 +7,7 @@ using Proyecto.DatabaseHelper;
 //using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Newtonsoft.Json;
 
 namespace Proyecto.Controllers
 {
@@ -46,9 +47,10 @@ namespace Proyecto.Controllers
                 ViewBag.Message = "Error en el usuario o contraseña";
                 return View("login2");
             }
+            string strCompany = JsonConvert.SerializeObject(Companies.Companies.ValidateLoginCompany(txtCorreo, txtPassword));
 
-            HttpContext.Session.SetString("userCompanySession", Companies.Companies.ValidateLoginCompany(txtCorreo, txtPassword).CedJur);
-            return RedirectToAction("mainmenu", "MainMenu");
+            HttpContext.Session.SetString("userCompanySession",strCompany);
+            return RedirectToAction("companyview", "CompanyView");
         }
 
 
