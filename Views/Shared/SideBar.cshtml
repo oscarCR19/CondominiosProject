@@ -1,0 +1,150 @@
+﻿
+<link rel="stylesheet" href="/css/StyleNav.css">
+<html>
+<head>
+
+</head>
+<body>
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <form asp-action="mainmenu" asp-controller="MainMenu">
+                    <button type="submit">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Meú Principal
+                        </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="GetCondominios" asp-controller="Condominios">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="fa fa-cog fa-2x"></i>
+                            <span class="nav-text">
+                                Obtener Condominios
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="CreateCondominios" asp-controller="Condominios">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="fa fa-plus-circle fa-2x"></i>
+                            <span class="nav-text">
+                                Crear Condominios
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="GetPerson" asp-controller="CondominosPerson">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="fa fa-users fa-2x"></i>
+                            <span class="nav-text">
+                                Obtener Condóminos
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="CreatePerson" asp-controller="CondominosPerson">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="fa fa-plus-circle fa-2x"></i>
+                            <span class="nav-text">
+                                Crear Condóminos
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="GetSecurityOfficer" asp-controller="SecurityOfficer">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="	fa fa-exclamation-circle fa-2x"></i>
+                            <span class="nav-text">
+                                Obtener Oficiales de Seguridad
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+            <li class="has-subnav">
+                <form asp-action="CreatePerson" asp-controller="CondominosPerson">
+                    <button type="submit">
+                        <a href="#">
+                            <i class="fa fa-plus-circle fa-2x"></i>
+                            <span class="nav-text">
+                                Crear Oficiales de Seguridad
+                            </span>
+                    </button>
+                </form>
+            </li>
+
+
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-bar-chart-o fa-2x"></i>
+                    <span class="nav-text">
+                        Graphs and Statistics
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-font fa-2x"></i>
+                    <span class="nav-text">
+                        Quotes
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-table fa-2x"></i>
+                    <span class="nav-text">
+                        Tables
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span class="nav-text">
+                        Maps
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Documentation
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="#">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

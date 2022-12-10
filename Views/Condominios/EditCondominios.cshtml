@@ -2,18 +2,13 @@
     ViewData["Title"] = "Edit Condominios";
 }
 
+@Html.Partial("SideBar")
 
 <link rel="stylesheet" href="/css/Style.css">
 <body>
     <div class="text-center">
         <h1 class="display-4" style="color: darkblue">Editar Condominios</h1>
     </div>
-    <div class="text-center">
-        <form asp-action="GetCondominios" asp-controller="Condominios">
-            <button class="btn btn-success" type="submit">Regresar</button>
-        </form>
-    </div>
-    <br />
     <div class="login-wrap">
         <form asp-controller="Login" asp-action="UpdateCondominio">
             <div class="login-html">

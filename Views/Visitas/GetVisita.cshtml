@@ -3,7 +3,7 @@
     ViewData["Title"] = "Get Visitas";
 }
 
-<link rel="stylesheet" href="/css/StyleNav.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/Style.css">
 <body>
 	<div class="text-center">
@@ -21,105 +21,150 @@
             <button class="btn btn-success" type="submit"> + Create</button>
         </form>
     </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="myInput" placeholder="name@example.com">
+        <label for="myInput">Search</label>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+<hr />
+<div class="text-center">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="display:none;">ID</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Marca Vehiculo</th>
+                    <th scope="col">Modelo Vehiculo</th>
+                    <th scope="col">Color Vehiculo</th>
+                     <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Tipo Visita</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                @*@foreach (var @item in @ViewBag)*@
+                @* {*@
+                <tr>
+                    <td style="display:none;">item</td>
+                    <td>207770863</td>
+                    <td>Jose Ureña</td>
+                    <td>Honda</td>
+                    <td>CRV</td>
+                    <td>Plateado</td>
+                    <td>11/12/2022</td>
+                    <td>08:30:00</td>
+                    <td>Visita Normal</td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="display:none;">item</td>
+                    <td>105550555</td>
+                    <td>Leandro Vargas</td>
+                    <td>Toyota</td>
+                    <td>Corolla</td>
+                    <td>Blanco</td>
+                    <td>12/12/2022</td>
+                    <td>10:30:00</td>
+                    <td>Visita Favorita</td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="display:none;">item</td>
+                    <td>102220222</td>
+                    <td>Oscar Mora</td>
+                    <td>Honda</td>
+                    <td>Civic</td>
+                    <td>Rojo</td>
+                    <td>11/12/2022</td>
+                    <td>11:30:00</td>
+                    <td>Visita Normal</td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="display:none;">item</td>
+                    <td>103330333</td>
+                    <td>Ana Laura Solis</td>
+                    <td>MOTHonda</td>
+                    <td>XR</td>
+                    <td>Blanco</td>
+                    <td>11/12/2022</td>
+                    <td>08:30:00</td>
+                    <td>Visita Delivery</td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                @*}*@
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
-
-
-<html>
-<head>
-
-</head>
-<body>
-    <div class="area"></div>
-    <nav class="main-menu">
-        <ul>
-            <li>
-                <a href="http://justinfarrow.com">
-                    <i class="fa fa-home fa-2x"></i>
-                    <span class="nav-text">
-                        Dashboard
-                    </span>
-                </a>
-
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-laptop fa-2x"></i>
-                    <span class="nav-text">
-                        Stars Components
-                    </span>
-                </a>
-
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-list fa-2x"></i>
-                    <span class="nav-text">
-                        Forms
-                    </span>
-                </a>
-
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
-                    <span class="nav-text">
-                        Pages
-                    </span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
-                    <span class="nav-text">
-                        Graphs and Statistics
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-font fa-2x"></i>
-                    <span class="nav-text">
-                        Quotes
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-table fa-2x"></i>
-                    <span class="nav-text">
-                        Tables
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-map-marker fa-2x"></i>
-                    <span class="nav-text">
-                        Maps
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-info fa-2x"></i>
-                    <span class="nav-text">
-                        Documentation
-                    </span>
-                </a>
-            </li>
-        </ul>
-
-        <ul class="logout">
-            <li>
-                <a href="#">
-                    <i class="fa fa-power-off fa-2x"></i>
-                    <span class="nav-text">
-                        Logout
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</body>
-</html>
