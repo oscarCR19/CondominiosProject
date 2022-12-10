@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Delete Condominios";
+}
+
+@Html.Partial("SideBar")
+
+<link rel="stylesheet" href="/css/Style.css">
+<body>
+    <div class="text-center">
+        <h1 class="display-4" style="color: darkblue">Eliminar Condominios</h1>
+    </div>
+    <div class="login-wrap">
+
+        <div class="login-html">
+
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Eliminar Condominio</label>
+            <p>¿Estas seguro que desea eliminar el siguiente condominio?.</p>
+            @foreach (var @item in @ViewBag.Condominios)
+            {
+                <div class="col">
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="flex-shrink-0">
+                            <img src="@item.Logo" class="card-img-top" alt="..." style="width:250px">
+                        </div>
+
+                        <div class="card-body">
+                            <div style="display: none">
+                                <p class="card-text"></p>
+                            </div>
+                            <p class="card-text">@item.Name</p>
+                            <p class="card-text">@item.Address</p>
+                            <p class="card-text">@item.Phone</p>
+
+                            <div class="text-center">
+                                <form asp-action="DeleteIDCondominio" asp-controller="Condominios" asp-route-id="@item.Id">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+                <br>
+                <a asp-action="GetCondominios" class="btn btn-dark">Regresar a la Lista de Usuario</a>
+            }
+        </div>
+    </div>
+</body>

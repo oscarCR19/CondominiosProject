@@ -10,65 +10,46 @@
         <h1 class="display-4" style="color: darkblue">Editar Condominios</h1>
     </div>
     <div class="login-wrap">
-        <form asp-controller="Login" asp-action="UpdateCondominio">
-            <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Editar Condominio</label>
-                
-                <div class="login-form">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <label for="Codigo" class="label">Código</label>
-                            <input id="Codigo" type="text" name="txtCodigo" class="input" required>
-                        </div>
-                        <div class="group">
-                            <label for="Nombre" class="label">Nombre</label>
-                            <input id="Nombre" type="text" name="txtNombre" class="input" required>
-                        </div>
-                        <div class="group">
-                            <label for="Direccion" class="label">Dirección</label>
-                            <input id="Direccion" type="text" name="txtDireccion" class="input" required>
-                        </div>
-                        <div class="group">
-                            <label for="Telefono" class="label">Teléfono</label>
-                            <input id="Telefono" type="text" name="txtTelefono" class="input" required>
-                        </div>
 
-                        <div class="text-center">
-                            <img src="~/img/0.jpg" class="card-img-top" alt="..." style="width:250px" value="movies.Photo">
-                            <a asp-action="DeletePhoto" asp-controller="Home" style="position:absolute;margin-left: -22px;color:blue" asp-route-IdMovie="movies.IdMovie" asp-route-Photo="movies.Photo">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                </svg>
-                            </a>
-                        </div>
+        <div class="login-html">
 
-                        <hr />
-                        <div class="card-body">
-                            <form asp-action="UpdatePhoto" asp-controller="Home" method="post" enctype="multipart/form-data" asp-route-IdMovie="movies.IdMovie">
-                                <div class="d-flex pt-1">
-                                    <div class="file-upload-wrapper">
-                                        <input type="file" name="Photo" class="form-control" />
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"></path>
-                                            <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"></path>
-                                        </svg>
-                                        Actualizar Logo
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Actualizar Condominio</label>
+            @foreach (var @item in @ViewBag.Condominios)
+            {
+                <form asp-controller="Condominios" asp-action="SaveEditCondominio" method="post" enctype="multipart/form-data">
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <div class="group">
+                                <label for="Nombre" class="label">ID Condominio</label>
+                                <input id="Nombre" type="text" name="txtId" class="input" value="@item.Id" readonly>
+                            </div>
+                            <div class="group">
+                                <label for="Nombre" class="label">Nombre</label>
+                                <input id="Nombre" type="text" name="txtNombre" class="input" value="@item.Name" required>
+                            </div>
+                            <div class="group">
+                                <label for="Direccion" class="label">Dirección</label>
+                                <input id="Direccion" type="text" name="txtDireccion" class="input" value="@item.Address" required>
+                            </div>
+                            <div class="group">
+                                <label for="Telefono" class="label">Teléfono</label>
+                                <input id="Telefono" type="text" name="txtPhone" class="input" value="@item.Phone" required>
+                            </div>
 
-                        <div class="group">
-                            <input type="submit" class="button" value="Actualizar Condominio">
+                            <div class="form-group foto" id="foto-field">
+                                <label for="Telefono" class="label">Logo</label>
+                                <input type="file" class="form-control" id="photo" name="photo" required />
+                            </div>
+                            <br>
+                            <div class="group">
+                                <input type="submit" class="button" value="Actualizar Condominio"> 
+                                <br>
+                                <a asp-action="GetCondominios" class="btn btn-dark">Regresar a la Lista de Usuario</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </form>
+                </form>
+            }
+        </div>
     </div>
 </body>
