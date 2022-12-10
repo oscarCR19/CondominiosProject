@@ -2,17 +2,13 @@
     ViewData["Title"] = "Edit";
 }
 
+@Html.Partial("SideBar")
+
 <link rel="stylesheet" href="/css/Style.css">
 <body>
     <div class="text-center">
         <h1 class="display-4" style="color: white">Editar Personas</h1>
     </div>
-    <div class="text-center">
-        <form asp-action="GetPerson" asp-controller="CondominosPerson">
-            <button class="btn btn-success" type="submit">Regresar</button>
-        </form>
-    </div>
-    <br />
     <div class="login-wrap">
         <form asp-controller="Login" asp-action="UpdatePerson">
             <div class="login-html">
@@ -97,9 +93,10 @@
                         <div class="group">
                             <input type="submit" class="button" value="Guardar Persona">
                         </div>
+              
                     </div>
+                </div>
+            </div>
         </form>
-    </div>
-    </div>
-    </div>
+    </div>  
 </body>
