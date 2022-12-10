@@ -4,3 +4,57 @@
 @{
 }
 <p>Usuario en uso: @ViewBag.Session</p>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 style="color: darkblue">Menu Principal</h1>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/Stylee.css">
+</head>
+<body>
+
+    <div class="container">
+        <p style="color:darkblue">Session: @ViewBag.Session </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="GetVisita" asp-controller="Visitas">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/visita.jpg" alt="Lights" style="width:100%">
+                        </button>
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue">Visitas</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="GetVehiculos" asp-controller="Vehiculos">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/vehiculo.png" alt="Nature" style="width:100%">
+                        </button>
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue">Vehiculos</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
