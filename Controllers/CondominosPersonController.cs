@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Proyecto.Models;
 
 namespace Proyecto.Controllers
@@ -18,6 +19,7 @@ namespace Proyecto.Controllers
                                             string txtCorreo,
                                             string txtContra)
             {
+
             Person person = new Person()
             {
                 Id_Rol=Convert.ToInt32(txtIdRol),
@@ -49,8 +51,14 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult GetPerson()
+        public ActionResult GetPerson(string txtIdCond)
         {
+            Company company = new Company();
+            //company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+
+            
+            ViewBag.ListCondominos=Condominos.Condominos.GetCondominosPorCondominio(txtIdCond);
+            ViewBag.Session = company;
             return View();
         }
 

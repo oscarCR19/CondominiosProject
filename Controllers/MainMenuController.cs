@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Proyecto.Models;
 using System.Security.Policy;
 
 
@@ -11,10 +13,11 @@ namespace Proyecto.Controllers
         // GET: MainMenuController
         public ActionResult mainmenu()
         {
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
 
-            string session = HttpContext.Session.GetString("userCompanySession");
-             
-            ViewBag.Session = session;
+            ViewBag.IdCond = HttpContext.Session.GetString("SessionIdCond");
+            ViewBag.Session = company;
             return View();
         }
 
