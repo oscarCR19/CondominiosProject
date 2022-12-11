@@ -18,7 +18,7 @@ namespace Proyecto.Controllers
         {
             Condominium condominium = new Condominium()
             {
-                Id = Convert.ToInt64(Id)
+                Id = Convert.ToInt32(Id)
             };
 
             ViewBag.Condominios = Condominios.Condominios.GetIDCondominio(Id);
@@ -28,7 +28,7 @@ namespace Proyecto.Controllers
         {
             Condominium condominium = new Condominium()
             {
-                Id = Convert.ToInt64(Id)
+                Id = Convert.ToInt32(Id)
             };
 
             ViewBag.Condominios = Condominios.Condominios.GetIDCondominio(Id);
@@ -39,7 +39,7 @@ namespace Proyecto.Controllers
         {
             Condominium condominium = new Condominium()
             {
-                Id = Convert.ToInt64(Id)
+                Id = Convert.ToInt32(Id)
             };
 
             ViewBag.Condominios = Condominios.Condominios.DeleteCondominio(Id);
@@ -107,7 +107,7 @@ namespace Proyecto.Controllers
 
             Condominium condominium = new Condominium()
             {
-                Id = Convert.ToInt64(txtId),
+                Id = Convert.ToInt32(txtId),
                 Name = txtNombre,
                 Address = txtDireccion,
                 Phone = txtPhone,

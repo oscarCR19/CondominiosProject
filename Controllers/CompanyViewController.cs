@@ -25,9 +25,17 @@ namespace Proyecto.Controllers
         }
 
 
-        public ActionResult goToMainMenu()
+        public ActionResult goToMainMenu(string txtIdCond)
         {
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            HttpContext.Session.SetString("SessionIdCond", txtIdCond);
             return RedirectToAction("mainmenu", "MainMenu");
+        }
+
+        public ActionResult goTocompanycondominosmenu()
+        {
+            return RedirectToAction("companycondominosmenu", "CompanyCondominosMenu");
         }
 
         // GET: CompanyViewController/Details/5

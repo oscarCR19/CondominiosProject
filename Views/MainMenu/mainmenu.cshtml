@@ -19,11 +19,13 @@
 <body>
 
     <div class="container">
-        <p style="color:darkblue">Session: @ViewBag.Session </p>
+        <p style="color:darkblue">Session: @ViewBag.Session.Name </p>
+        <p style="color:darkblue">Condominio activo: @ViewBag.IdCond </p>
         <br>
         <br>
         <br>
         <br>
+        
         <div class="row">
             <div class="col-md-4">
                 <div class="thumbnail">
@@ -31,6 +33,7 @@
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/0.jpg" alt="Lights" style="width:100%">
                         </button>
+ 
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Proyectos Habitacionales</h2>
@@ -42,7 +45,8 @@
                     <form asp-action="GetPerson" asp-controller="CondominosPerson">
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/Empleados.jpg" alt="Nature" style="width:100%">
-                        </button>
+                         </button>
+                        <input type="text" name="txtIdCond" value="@ViewBag.IdCond" />
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Condóminos</h2>
