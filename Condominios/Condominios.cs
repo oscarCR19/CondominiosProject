@@ -60,7 +60,7 @@ namespace Proyecto.Condominios
             {
                 condominio.Add(new Condominium()
                 {
-                    Id = Convert.ToInt64(dr["id_Con"]),
+                    Id = Convert.ToInt32(dr["id_Con"]),
                     Name = dr["nombre"].ToString(),
                     Address = dr["direccion"].ToString(),
                     Phone = dr["tel"].ToString(),
@@ -108,6 +108,8 @@ namespace Proyecto.Condominios
             }
         }
 
+
+
         //Metodo para obtener los condominios de determinada empresa
         public static List<Condominium> getListCondomonios(int idEmpre)
         {
@@ -121,18 +123,19 @@ namespace Proyecto.Condominios
             DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetCondominiosPorEmpresas", paramList);
 
             List<Condominium> condominioList = new List<Condominium>();
-            Condominium condominio = new Condominium();
-
+            
             foreach (DataRow dr in ds.Rows)
             {
-                condominio.Id = Convert.ToInt32(dr["id_Con"]);
-                condominio.Id_Company = Convert.ToInt32(dr["id_Empre"]);
-                condominio.Name = dr["nombre"].ToString();
-                condominio.Address = dr["direccion"].ToString();
-                condominio.Phone = dr["tel"].ToString();
-                condominio.Logo = dr["logo"].ToString();
-                condominioList.Add(condominio);
-            }
+                condominioList.Add(new Condominium {
+
+                    Id = Convert.ToInt32(dr["id_Con"]),
+                    Id_Company = Convert.ToInt32(dr["id_Empre"]),
+                    Name = dr["nombre"].ToString(),
+                    Address = dr["direccion"].ToString(),
+                    Phone = dr["tel"].ToString(),
+                    Logo = dr["logo"].ToString()
+                });
+        }
 
             return condominioList;
         }
