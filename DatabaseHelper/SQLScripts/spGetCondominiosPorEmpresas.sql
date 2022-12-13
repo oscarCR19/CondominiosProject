@@ -10,5 +10,5 @@ AS
 		inner join Empresas E
 			ON E.id_Empre=CE.id_Empre
 	ON C.id_Con=CE.id_Con
-	                      WHERE e.id_Empre=@id
+	                      WHERE E.id_Empre=@id
 	END
