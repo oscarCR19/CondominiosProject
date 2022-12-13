@@ -11,14 +11,10 @@
         <h1 class="display-4" style="color: darkblue">Lista de Condominios</h1>
     </div>
     <hr />
-    <form asp-controller="Condominios" asp-action="SearchCondominios">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="Buscar" name="txtBuscar">
-            <label for="myInput">Search</label>
+    <form asp-controller="Condominios" asp-action="GetCondominios">
             <div class="text-center">
-                <button class="btn btn-primary" type="submit">Buscar</button>
+                <button class="btn btn-primary" type="submit">Eliminar Filtro</button>
             </div>
-        </div>
     </form>
     <br />
 

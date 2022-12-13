@@ -50,6 +50,17 @@ namespace Proyecto.Controllers
             ViewBag.Condominios = Condominios.Condominios.GetCondominios();
             return View();
         }
+
+        public IActionResult SearchCondominios(string txtBuscar)
+        {
+            Condominium condominium = new Condominium()
+            {
+                Filtro = txtBuscar
+            };
+            ViewBag.Condominios = Condominios.Condominios.SearchCondominios(txtBuscar);
+            return View();
+        }
+
         // GET: CondominiosController/Details/5
         public ActionResult Details(int id)
         {
