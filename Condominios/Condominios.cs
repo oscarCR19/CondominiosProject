@@ -46,6 +46,30 @@ namespace Proyecto.Condominios
             return condominiosList;
         }
 
+        public static List<Condominium> SearchCondominios(string Filtro)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+            {
+                new SqlParameter("@filtro", Filtro)
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spBuscarCondominios", param);
+
+            List<Condominium> condominio = new List<Condominium>();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                condominio.Add(new Condominium()
+                {
+                    Id = Convert.ToInt32(dr["id_Con"]),
+                    Name = dr["nombre"].ToString(),
+                    Address = dr["direccion"].ToString(),
+                    Phone = dr["tel"].ToString(),
+                    Logo = dr["logo"].ToString()
+                });
+            }
+            return condominio;
+        }
+
         public static List<Condominium> GetIDCondominio(int Id)
         {
             List<SqlParameter> param = new List<SqlParameter>()
