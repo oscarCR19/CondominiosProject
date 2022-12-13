@@ -8,7 +8,7 @@ namespace Proyecto.Condominos
     public class Condominos
     {
 
-        public static List<Person> GetCondominosPorCondominio(string idCond)
+        public static List<Person> GetCondominosPorCondominio(int idCond)
         {
 
             List<SqlParameter> param = new List<SqlParameter>()

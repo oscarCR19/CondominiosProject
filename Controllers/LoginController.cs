@@ -39,6 +39,7 @@ namespace Proyecto.Controllers
             return RedirectToAction("dasboardperson", "DashboardPerson");
         }
 
+        //validacion compañia
         public ActionResult ValidateCompanyLogin(string txtCorreo, string txtPassword)
         {
 

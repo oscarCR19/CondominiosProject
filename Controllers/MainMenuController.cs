@@ -14,12 +14,10 @@ namespace Proyecto.Controllers
         public ActionResult mainmenu()
         {
 
-
-            string session = HttpContext.Session.GetString("userCompanySession");
             Company company = new Company();
-            company = JsonConvert.DeserializeObject<Company>(session);
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
             
-            //ViewBag.IdCond = idCond;
+            ViewBag.IdCond = company.Id;
             ViewBag.Session = company;
             return View();
         }
