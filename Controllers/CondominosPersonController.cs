@@ -46,21 +46,59 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult EditPerson()
+        public ActionResult EditPerson(string txtIdPerson)
         {
-            return View();
+            HttpContext.Session.GetString("SessionIdCond");
+            Person person = Persons.Persons.GetPerson(Convert.ToInt32(txtIdPerson));
+            ViewBag.Person=person;
+            return View("EditPerson","CondominosPerson");
         }
 
         public ActionResult GetPerson(string txtIdCond)
         {
-            Company company = new Company();
-            //company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            //session = TempData["session"].ToString();
 
-            
+            Company company = new Company();
+            //company = JsonConvert.DeserializeObject<Company>(session);
+
+            HttpContext.Session.GetString("userCompanySession");
             ViewBag.ListCondominos=Condominos.Condominos.GetCondominosPorCondominio(txtIdCond);
-            ViewBag.Session = company;
+            //ViewBag.Session
             return View();
         }
+
+        public ActionResult SavePerson(string txtCedula,string txtPrimerNombre,string txtSegundoNombre,string txtPrimerApellido,string txtSegundoApellido,string txtTelefono,string txtCorreo,string txtPassword,string txtIdPerson,string txtIdRol) {
+            Person person = new Person()
+            {
+                Id = Convert.ToInt32(txtIdPerson),
+                Id_Rol=Convert.ToInt32(txtIdRol),
+                Ced=txtCedula,
+                FirstName=txtPrimerNombre,
+                MiddleName=txtSegundoNombre,
+                LastName1=txtPrimerApellido,
+                LastName2=txtSegundoApellido,
+                Phone=txtTelefono,
+                Email=txtCorreo,
+                Password=txtPassword
+            };
+
+            //aqui valido los datos proporcionados, si falla alguno se queda en un bucle hasta que introduzca un dato que no exista en db
+             if (Persons.Persons.ValidateUpdatePerson(person.Ced, person.Email, person.Phone,person.Id).Count> 0)
+            {
+
+                ViewBag.Message = "Algunos valores ya estan en uso";
+                ViewBag.Person = person;
+                return View("EditPerson","CondominosPerson");
+            }
+
+
+            Persons.Persons.updatePerson(person);
+            HttpContext.Session.GetString("userCompanySession");
+            return RedirectToAction("mainmenu","MainMenu"); 
+        
+        
+        }
+
 
         // GET: CondominiosPersonController/Create
         public ActionResult Create()

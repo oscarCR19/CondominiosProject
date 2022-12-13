@@ -19,7 +19,6 @@ namespace Proyecto.Condominos
             };
             DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetCondominosPorCondominio", param);
             
-            Person person = new Person();
             List<Person> personList = new List<Person>();
 
             foreach (DataRow dr in ds.Rows)

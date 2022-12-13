@@ -13,10 +13,13 @@ namespace Proyecto.Controllers
         // GET: MainMenuController
         public ActionResult mainmenu()
         {
-            Company company = new Company();
-            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
 
-            ViewBag.IdCond = HttpContext.Session.GetString("SessionIdCond");
+
+            string session = HttpContext.Session.GetString("userCompanySession");
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(session);
+            
+            //ViewBag.IdCond = idCond;
             ViewBag.Session = company;
             return View();
         }
@@ -27,7 +30,7 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        // GET: MainMenuController/Create
+        // GET: MainMenuController/Createhttps://localhost:7133/img/Empleados.jpg
         public ActionResult Create()
         {
             return View();
