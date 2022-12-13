@@ -13,10 +13,8 @@ namespace Proyecto.Controllers
 
             if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession")))
             {       //este objeto es para tener una empresa donde tomar ids
-                
-                string session = HttpContext.Session.GetString("userCompanySession");
                 Company company = new Company();
-                company = JsonConvert.DeserializeObject<Company>(session);
+                company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
                 
                 ViewBag.CondominiosList= Condominios.Condominios.getListCondomonios(company.Id);
                 return View();
@@ -29,9 +27,9 @@ namespace Proyecto.Controllers
 
         public ActionResult goToMainMenu(string txtIdCond)
         {
-            string session = HttpContext.Session.GetString("userCompanySession");
+            //string session = ;
             Company company = new Company();
-            company = JsonConvert.DeserializeObject<Company>(session);
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
 
             return RedirectToAction("mainmenu", "MainMenu");
         }

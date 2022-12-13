@@ -56,14 +56,12 @@ namespace Proyecto.Controllers
 
         public ActionResult GetPerson(string txtIdCond)
         {
-            //session = TempData["session"].ToString();
+            //string idCond = HttpContext.Session.GetString("userCompanySession");
 
             Company company = new Company();
-            //company = JsonConvert.DeserializeObject<Company>(session);
-
-            HttpContext.Session.GetString("userCompanySession");
-            ViewBag.ListCondominos=Condominos.Condominos.GetCondominosPorCondominio(txtIdCond);
-            //ViewBag.Session
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            ViewBag.ListCondominos = Condominos.Condominos.GetCondominosPorCondominio(Convert.ToInt32(txtIdCond));
+            
             return View();
         }
 
@@ -85,7 +83,7 @@ namespace Proyecto.Controllers
             //aqui valido los datos proporcionados, si falla alguno se queda en un bucle hasta que introduzca un dato que no exista en db
              if (Persons.Persons.ValidateUpdatePerson(person.Ced, person.Email, person.Phone,person.Id).Count> 0)
             {
-
+                HttpContext.Session.GetString("userCompanySession");
                 ViewBag.Message = "Algunos valores ya estan en uso";
                 ViewBag.Person = person;
                 return View("EditPerson","CondominosPerson");
