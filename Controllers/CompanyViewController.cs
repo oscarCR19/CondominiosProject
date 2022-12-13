@@ -27,9 +27,11 @@ namespace Proyecto.Controllers
 
         public ActionResult goToMainMenu(string txtIdCond)
         {
-            //string session = ;
+            
             Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            
+            TempData["idCond"]=txtIdCond;
 
             return RedirectToAction("mainmenu", "MainMenu");
         }

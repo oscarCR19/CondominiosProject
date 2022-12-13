@@ -13,13 +13,19 @@ namespace Proyecto.Controllers
         // GET: MainMenuController
         public ActionResult mainmenu()
         {
-
-            Company company = new Company();
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession"))) 
+            { 
+                Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
-            
-            ViewBag.IdCond = company.Id;
+
+            var idCond = TempData["idCond"];
+            ViewBag.IdCond = idCond;
             ViewBag.Session = company;
+            HttpContext.Session.GetString("userCompanySession");
             return View();
+            }
+
+            return RedirectToAction("login2", "Login");
         }
 
         // GET: MainMenuController/Details/5

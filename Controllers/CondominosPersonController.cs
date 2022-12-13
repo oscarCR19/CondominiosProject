@@ -56,12 +56,12 @@ namespace Proyecto.Controllers
 
         public ActionResult GetPerson(string txtIdCond)
         {
-            //string idCond = HttpContext.Session.GetString("userCompanySession");
 
+            var idCond = TempData["idCond"];
             Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
             ViewBag.ListCondominos = Condominos.Condominos.GetCondominosPorCondominio(Convert.ToInt32(txtIdCond));
-            
+            ViewBag.IdCond = idCond;
             return View();
         }
 
