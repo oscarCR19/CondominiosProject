@@ -80,7 +80,7 @@ namespace Proyecto.Controllers
         // POST: CondominiosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SaveCondominios(IFormFile photo, string txtNombre, string txtDireccion, string txtPhone)
+        public IActionResult SaveCondominios(IFormFile photo,string txtidcond, string txtNombre, string txtDireccion, string txtPhone)
         {
             string nombreArchivo = photo.FileName;
             string rutaArchivo = Directory.GetCurrentDirectory() + @"\wwwroot\img\condominios\" + nombreArchivo;
@@ -89,7 +89,7 @@ namespace Proyecto.Controllers
 
             Condominium condominium = new Condominium()
             {
-                Id_Company = 1,
+                Id_Company = Convert.ToInt32(txtidcond),
                 Name = txtNombre,
                 Address = txtDireccion,
                 Phone = txtPhone,
