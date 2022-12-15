@@ -169,6 +169,17 @@ namespace Proyecto.Persons
         }
 
 
+        public static void Delete(string txtIdPers)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+            {
+
+                new SqlParameter("id_Person",txtIdPers),
+                
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spEliminarPerson", paramList);
+
+        }
 
 
     }

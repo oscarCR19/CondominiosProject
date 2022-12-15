@@ -56,14 +56,22 @@ namespace Proyecto.Controllers
 
         public ActionResult GetPerson(string txtIdCond)
         {
-
-            var idCond = TempData["idCond"];
+            string idCond = HttpContext.Session.GetString("IdCond");
+            
             Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
-            ViewBag.ListCondominos = Condominos.Condominos.GetCondominosPorCondominio(Convert.ToInt32(txtIdCond));
+            ViewBag.ListCondominos = Condominos.Condominos.GetCondominosPorCondominio(Convert.ToInt32(idCond));
             ViewBag.IdCond = idCond;
             return View();
         }
+
+        public ActionResult DeletePerson(string txtIdPerson)
+        {
+            Persons.Persons.Delete(txtIdPerson);
+            HttpContext.Session.GetString("userCompanySession");
+            return RedirectToAction("mainmenu", "MainMenu");
+        }
+
 
         public ActionResult SavePerson(string txtCedula,string txtPrimerNombre,string txtSegundoNombre,string txtPrimerApellido,string txtSegundoApellido,string txtTelefono,string txtCorreo,string txtPassword,string txtIdPerson,string txtIdRol) {
             Person person = new Person()

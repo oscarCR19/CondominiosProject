@@ -6,12 +6,7 @@ CREATE OR ALTER PROCEDURE [dbo].[spEliminarPerson]
 
 AS
 	BEGIN
-	DELETE CasasPorCondominos WHERE	 
-			id_Person=@id_Person;
-	DELETE Personas WHERE
-	id_Person=@id_Person;
-	
-		
+		DELETE FROM Personas
+		WHERE id_Person = @id_Person
 END
 GO
-

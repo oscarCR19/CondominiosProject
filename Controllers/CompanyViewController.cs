@@ -30,8 +30,10 @@ namespace Proyecto.Controllers
             
             Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
-            
-            TempData["idCond"]=txtIdCond;
+
+
+            HttpContext.Session.SetString("IdCond", txtIdCond);
+            //TempData["idCond"]=txtIdCond;
 
             return RedirectToAction("mainmenu", "MainMenu");
         }
