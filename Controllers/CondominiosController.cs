@@ -13,7 +13,12 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        // GET: CondominiosController      
+        // GET: CondominiosController
+
+        
+
+
+
         public IActionResult EditCondominios(int Id)
         {
             Condominium condominium = new Condominium()
