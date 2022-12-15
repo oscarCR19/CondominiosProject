@@ -38,7 +38,7 @@
                         <input type="text" name="txtIdCond" value="@ViewBag.IdCond" hidden />
                     </form>
                     <div class="text-center">
-                        <h2 style=" color:darkblue">Condóminos</h2>
+                        <h2 style=" color:darkblue">Ver Condóminos</h2>
                     </div>
                 </div>
             </div>
@@ -53,6 +53,33 @@
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Ver casas</h2>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="CreatePerson" asp-controller="CondominosPerson">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
+                        </button>
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue">Crear condómino</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="" asp-controller="">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
+                        </button>
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue">Crear Casa</h2>
                     </div>
                 </div>
             </div>

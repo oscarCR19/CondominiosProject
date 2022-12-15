@@ -17,29 +17,29 @@
     </div>
     <br />
     <div class="login-wrap">
-        <form asp-controller="Login" asp-action="SavePerson">
+        <form asp-action="Create" asp-controller="CondominosPerson" method="post">
             <div class="login-html">
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Crear Personas</label>
 
                 <div class="login-form">
                     <div class="sign-in-htm">
                         <div class="group">
-                            <label for="Cedula" class="label">Cedula</label>
-                            <input id="Cedula" type="text" name="txtCedula" class="input" required>
+                            <label for="Cedula" class="label">Cédula</label>
+                            <input id="txtCed" type="text" name="txtCed" class="input" required>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <div class="group">
                                     <label for="PrimerNombre" class="label">Primer Nombre</label>
-                                    <input id="PrimerNombre" type="text" name="txtPrimerNombre" class="input" required>
+                                    <input id="txtNombre1" type="text" name="txtNombre1" class="input" required>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="group">
                                     <label for="SegundoNombre" class="label">Segundo Nombre</label>
-                                    <input id="SegundoNombre" type="text" name="txtSegundoNombre" class="input">
+                                    <input id="txtNombre2" type="text" name="txtNombre2" class="input">
                                 </div>
                             </div>
                         </div>
@@ -48,28 +48,28 @@
                             <div class="col">
                                 <div class="group">
                                     <label for="PrimerApellido" class="label">Primer Apellido</label>
-                                    <input id="PrimerApellido" type="text" name="txtPrimerApellido" class="input" required>
+                                    <input id="txtApellido1" type="text" name="txtApellido1" class="input" required>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="group">
                                     <label for="SegundoApellido" class="label">Segundo Apellido</label>
-                                    <input id="SegundoApellido" type="text" name="txtSegundoApellido" class="input" required>
+                                    <input id="txtApellido2" type="text" name="txtApellido2" class="input" required>
                                 </div>
                             </div>
                         </div>
                         <div class="group">
                             <label for="Telefono" class="label">Telefono</label>
-                            <input id="Telefono" type="text" name="txtTelefono" class="input" required>
+                            <input id="txtTelefono" type="text" name="txtTelefono" class="input" required>
                         </div>
                         <div class="group">
                             <label for="Correo" class="label">Correo</label>
-                            <input id="Correo" type="email" name="txtCorreo" class="input" required>
+                            <input id="txtCorreo" type="email" name="txtCorreo" class="input" required>
                         </div>
                         <div class="group">
                             <label for="Password" class="label">Password</label>
-                            <input id="Password" type="Password" name="txtPassword" class="input" required>
+                            <input id="txtContra" type="Password" name="txtContra" class="input" required>
                         </div>
                         <div class="group">
                         </div>
@@ -78,21 +78,12 @@
                             <label for="Rol" class="label">Seleccione el tipo de Rol</label>
                         </div>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Condómino
-                            </label>
-                        </div>
-                        <div class="group">
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Oficial de Seguridad
-                            </label>
-                        </div>
+                        <select class="form-select" id="txtIdRol" name="txtIdRol" aria-label="Default select example">
+                                  
+                                  
+                                  <option value="2">Oficial seguridad</option>
+                                  <option value="3">Cóndomino</option>
+                          </select>
 
                         <div class="group">
                         </div>
