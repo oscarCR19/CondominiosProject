@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "Get Casas";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/Style.css">
+<body>
+	<div class="text-center">
+		<h1 class="display-4" style="color: white">Lista de Casas de Condominios</h1>
+	</div>
+    <div class="text-center">
+        <form asp-action="mainmenu" asp-controller="MainMenu">
+            <button class="btn btn-success" type="submit">Menú Principal</button>
+        </form>
+    </div>
+    <br />
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="myInput" placeholder="name@example.com">
+        <label for="myInput">Search</label>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+<hr />
+<div class="text-center">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="display:none;">ID</th>
+                    <th scope="col">Número de Casa</th>
+                    <th scope="col">ID Condominio</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                @*@foreach (var @item in @ViewBag)*@
+                @* {*@
+                <tr>
+                    <td style="display:none;">item</td>
+                    <td>Casa #120</td>
+                    <td>1</td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="EditCasa" asp-controller="CasasCondominio" asp-route-id="item">
+                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <form asp-action="DeleteCasa" asp-controller="CasasCondominio" asp-route-id="">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>Casa #115</td>
+                        <td>2</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="EditCasa" asp-controller="CasasCondominio" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="DeleteCasa" asp-controller="CasasCondominio" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+
+               
+                @*}*@
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>

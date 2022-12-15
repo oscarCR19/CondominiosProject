@@ -1,14 +1,13 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Get Visitas";
 }
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/Style.css">
 <body>
-	<div class="text-center">
-		<h1 class="display-4" style="color: white">Lista de Visitas</h1>
-	</div>
+    <div class="text-center">
+        <h1 class="display-4" style="color: white">Lista de Visitas</h1>
+    </div>
     <div class="text-center">
         <form asp-action="dasboardperson" asp-controller="DashboardPerson">
             <button class="btn btn-success" type="submit">Menú Principal</button>
@@ -37,134 +36,171 @@
         });
     </script>
 
-<hr />
-<div class="text-center">
-    <div class="container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" style="display:none;">ID</th>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Marca Vehiculo</th>
-                    <th scope="col">Modelo Vehiculo</th>
-                    <th scope="col">Color Vehiculo</th>
-                     <th scope="col">Fecha</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Tipo Visita</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody id="myTable">
-                @*@foreach (var @item in @ViewBag)*@
-                @* {*@
-                <tr>
-                    <td style="display:none;">item</td>
-                    <td>207770863</td>
-                    <td>Jose Ureña</td>
-                    <td>Honda</td>
-                    <td>CRV</td>
-                    <td>Plateado</td>
-                    <td>11/12/2022</td>
-                    <td>08:30:00</td>
-                    <td>Visita Normal</td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+    <hr />
+    <div class="text-center">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="display:none;">ID</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Marca Vehiculo</th>
+                        <th scope="col">Modelo Vehiculo</th>
+                        <th scope="col">Color Vehiculo</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Tipo Visita</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">QRCode</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    @*@foreach (var @item in @ViewBag)*@
+                    @* {*@
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>207770863</td>
+                        <td>Jose Ureña</td>
+                        <td>Honda</td>
+                        <td>CRV</td>
+                        <td>Plateado</td>
+                        <td>11/12/2022</td>
+                        <td>08:30:00</td>
+                        <td>Visita Normal</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="QRCode" asp-controller="QRCode">
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        <img src="/img/qrcode.png" alt="Fjords" style="width:30%">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td style="display:none;">item</td>
-                    <td>105550555</td>
-                    <td>Leandro Vargas</td>
-                    <td>Toyota</td>
-                    <td>Corolla</td>
-                    <td>Blanco</td>
-                    <td>12/12/2022</td>
-                    <td>10:30:00</td>
-                    <td>Visita Favorita</td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>105550555</td>
+                        <td>Leandro Vargas</td>
+                        <td>Toyota</td>
+                        <td>Corolla</td>
+                        <td>Blanco</td>
+                        <td>12/12/2022</td>
+                        <td>10:30:00</td>
+                        <td>Visita Favorita</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="QRCode" asp-controller="QRCode">
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        <img src="/img/qrcode.png" alt="Fjords" style="width:30%">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td style="display:none;">item</td>
-                    <td>102220222</td>
-                    <td>Oscar Mora</td>
-                    <td>Honda</td>
-                    <td>Civic</td>
-                    <td>Rojo</td>
-                    <td>11/12/2022</td>
-                    <td>11:30:00</td>
-                    <td>Visita Normal</td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>102220222</td>
+                        <td>Oscar Mora</td>
+                        <td>Honda</td>
+                        <td>Civic</td>
+                        <td>Rojo</td>
+                        <td>11/12/2022</td>
+                        <td>11:30:00</td>
+                        <td>Visita Normal</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="QRCode" asp-controller="QRCode">
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        <img src="/img/qrcode.png" alt="Fjords" style="width:30%">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td style="display:none;">item</td>
-                    <td>103330333</td>
-                    <td>Ana Laura Solis</td>
-                    <td>MOTHonda</td>
-                    <td>XR</td>
-                    <td>Blanco</td>
-                    <td>11/12/2022</td>
-                    <td>08:30:00</td>
-                    <td>Visita Delivery</td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                            </form>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-                @*}*@
-            </tbody>
-        </table>
+                    <tr>
+                        <td style="display:none;">item</td>
+                        <td>103330333</td>
+                        <td>Ana Laura Solis</td>
+                        <td>MOTHonda</td>
+                        <td>XR</td>
+                        <td>Blanco</td>
+                        <td>11/12/2022</td>
+                        <td>08:30:00</td>
+                        <td>Visita Delivery</td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <form asp-action="QRCode" asp-controller="QRCode">
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        <img src="/img/qrcode.png" alt="Fjords" style="width:30%">
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @*}*@
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 </body>

@@ -38,7 +38,6 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Correo</th>
-                        <th scope="col">Date</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -53,7 +52,6 @@
                             <td>@item.FirstName @item.MiddleName @item.LastName1 @item.LastName2</td>
                             <td>@item.Phone</td>
                             <td>@item.Email</td>
-                            <td>10/12/2022</td>
                             <td>
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <form asp-action="EditPerson" asp-controller="CondominosPerson" method="POST">
