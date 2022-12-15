@@ -38,5 +38,9 @@ namespace Proyecto.Condominos
 
             return personList;
         }
+
+
+
+
     }
 }
