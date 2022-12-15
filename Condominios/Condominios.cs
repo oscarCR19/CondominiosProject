@@ -1,4 +1,5 @@
 ﻿using Proyecto.Models;
+using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -165,6 +166,70 @@ namespace Proyecto.Condominios
             return condominioList;
         }
 
+        public static void CrearCasa(string idCond)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+              {
+                 new SqlParameter("idCond",idCond)
+            };
+         DatabaseHelper.DatabaseHelper.ExecStoreProcedure("spCrearCasa", paramList);
 
+        }
+
+        public static void DeleteCasa(string idCas)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+              {
+                 new SqlParameter("idCas",idCas)
+            };
+            DatabaseHelper.DatabaseHelper.ExecStoreProcedure("spDeleteCasa", paramList);
+
+        }
+
+        public static List<Apartament> GetCasasPorCondominios(string idCond)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+              {
+                 new SqlParameter("@idCond",idCond),
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetCasasPorCondominios",paramList);
+
+            List<Apartament> casasList = new List<Apartament>();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                casasList.Add(new Apartament
+                {
+
+                    Id = Convert.ToInt32(dr["id_Cas"]),
+                    Id_Condominium= Convert.ToInt32(dr["id_Con"])
+
+                });
+            }
+            return casasList;
+        }
+
+        public static List<Apartament> GetFreeCasasPorCondominios(string idCond)
+        {
+            List<SqlParameter> param = new List<SqlParameter>()
+             {
+                 new SqlParameter("iD_Con",idCond)
+            };
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetCasasfreePorCond",param);
+
+            List<Apartament> casasList = new List<Apartament>();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                casasList.Add(new Apartament
+                {
+
+                    Id = Convert.ToInt32(dr["id_Cas"]),
+                    Id_Condominium = Convert.ToInt32(dr["id_Con"])
+
+                });
+            }
+            return casasList;
+        }
     }
 }

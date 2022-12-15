@@ -6,9 +6,10 @@ namespace Proyecto.Controllers
     public class CasasCondominioController : Controller
     {
         // GET: CasasCondominioController
-        public ActionResult CreateCasa()
+        public ActionResult createCasa(string txtIdCond)
         {
-            return View();
+            Condominios.Condominios.CrearCasa(txtIdCond);
+            return RedirectToAction("mainmenu", "MainMenu");
         }
 
         public ActionResult EditCasa()
@@ -16,78 +17,26 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult GetCasa()
+        public ActionResult GetCasa(string txtIdCond)
         {
+            ViewBag.ListaCasas= Condominios.Condominios.GetCasasPorCondominios(txtIdCond);
             return View();
         }
 
-        // GET: CasasCondominioController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult deleteCasa(string txtIdCas)
         {
-            return View();
+            Condominios.Condominios.DeleteCasa(txtIdCas);
+            return RedirectToAction("mainmenu", "MainMenu");
         }
 
-        // GET: CasasCondominioController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: CasasCondominioController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: CasasCondominioController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: CasasCondominioController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: CasasCondominioController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: CasasCondominioController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
+
+
+
     }
 }

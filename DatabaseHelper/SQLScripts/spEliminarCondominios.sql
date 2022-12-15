@@ -14,4 +14,12 @@ AS
 		DELETE FROM [dbo].[CondiminiosPorEmpresas]
 		WHERE id_Con = @id_Con;
 	END
+	BEGIN
+		DELETE FROM [dbo].[CasasPorCondominios]
+		WHERE id_Con = @id_Con;
+	END
+	BEGIN
+		DELETE FROM [dbo].[CasasPorCondominos]
+		WHERE id_Con = @id_Con;
+	END
 GO

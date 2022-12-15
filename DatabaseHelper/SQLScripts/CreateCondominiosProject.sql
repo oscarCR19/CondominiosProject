@@ -85,6 +85,15 @@ Create table CasasPorCondominos(
 	Constraint fk_CasasPorCondominos3 Foreign key(id_Cas) references CasasPorCondominios(id_Cas)
 );
 
+Create table OficialesPorEmpresas(
+	id_Person Int NOT NULL,
+	id_Empre Int NOT NULL,
+	Constraint pk_OficialesPorEmpresas Primary key(id_Empre,id_Person),
+	Constraint fk_OficialesPorEmpresas1 Foreign key(id_Empre) references Empresas(id_Empre),
+	Constraint fk_OficialesPorEmpresas2 Foreign key(id_Person) references Personas(id_Person),
+);
+
+
 Create table Vehiculos(
 	id_Veh Int Identity(1,1) NOT NULL,
 	marca Varchar(20) NOT NULL,

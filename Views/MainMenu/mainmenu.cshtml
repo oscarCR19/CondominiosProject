@@ -46,10 +46,11 @@
 
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <form asp-action="GetCasa" asp-controller="CasasCondominio">
+                    <form asp-action="GetCasa" asp-controller="CasasCondominio" method="post">
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/casa.jpg" alt="Fjords" style="width:100%">
                         </button>
+                        <input type="text" name="txtIdCond" value="@ViewBag.IdCond" hidden />
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Ver casas</h2>
@@ -60,10 +61,11 @@
 
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <form asp-action="CreatePerson" asp-controller="CondominosPerson">
+                    <form asp-action="CreatePerson" asp-controller="CondominosPerson" method="post">
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/Empleados.jpg" alt="Fjords" style="width:100%">
                         </button>
+                        <input type="text" name="txtCond" value="@ViewBag.IdCond" hidden />
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Crear Condómino</h2>
@@ -73,10 +75,11 @@
 
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <form asp-action="CreateCasa" asp-controller="CasasCondominio">
+                    <form asp-action="createCasa" asp-controller="CasasCondominio" method="post">
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/casa.jpg" alt="Fjords" style="width:100%">
                         </button>
+                        <input type="text" name="txtIdCond" value="@ViewBag.IdCond" hidden />
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Crear Casa</h2>
