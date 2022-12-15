@@ -102,22 +102,28 @@ namespace Proyecto.Controllers
         // POST: CondominiosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SaveCondominios(IFormFile photo,string txtidcond, string txtNombre, string txtDireccion, string txtPhone)
+        public IActionResult SaveCondominios(IFormFile photo, string txtNombre, string txtDireccion, string txtPhone)
         {
             string nombreArchivo = photo.FileName;
             string rutaArchivo = Directory.GetCurrentDirectory() + @"\wwwroot\img\condominios\" + nombreArchivo;
 
             photo.CopyTo(new FileStream(rutaArchivo, FileMode.Create));
 
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession")))
+            {       //este objeto es para tener una empresa donde tomar ids
+                Company company = new Company();
+                company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            
             Condominium condominium = new Condominium()
             {
-                Id_Company = Convert.ToInt32(txtidcond),
+                Id_Company = company.Id,
                 Name = txtNombre,
                 Address = txtDireccion,
                 Phone = txtPhone,
                 Logo = "/img/condominios/" + nombreArchivo
             };
             Condominios.Condominios.CreateCondominio(condominium);
+            }
             return RedirectToAction("GetCondominios", "Condominios");
         }
         public IActionResult SaveEditCondominio(IFormFile photo, string txtId, string txtNombre, string txtDireccion, string txtPhone)

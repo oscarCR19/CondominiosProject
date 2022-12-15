@@ -52,7 +52,6 @@ Create table AdminPorEmpresas(
 Create table Condominios(
 	id_Con Int Identity(1,1) NOT NULL,
 	id_Empre Int NOT NULL,
-	codigo Varchar(30) NOT NULL,
 	nombre Varchar(30) NOT NULL,
 	direccion Varchar(100) NOT NULL,
 	tel Varchar(15) NOT NULL,
@@ -99,7 +98,6 @@ Create table Modelos(
 	Constraint pk_Modelos Primary key(id_Mol),
 	Constraint fk_Modelos Foreign key(id_Veh) references Vehiculos(id_Veh)
 );
-
 
 Create table VehiculosPorCondominos(
 	id_Person Int NOT NULL,
@@ -159,10 +157,6 @@ Create table ActividadGuardas(
 ALTER TABLE VisitasPorCondominios
 ALTER COLUMN cod_QR Varchar(4)
 
---Añadir campo codigo en la tabla Condominios
-ALTER TABLE Condominios
-ADD codigo Varchar(30)
-
 --Creación de las columnas para las fechas de QR
 ALTER TABLE VisitasPorCondominios 
 ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
@@ -174,3 +168,7 @@ ADD cedJuridica Varchar(200) NOT NULL;
 --	Remover columnas de Habitaciones,Parqueos,Valor de la tabla CasaporCondominios
 ALTER TABLE CasasPorCondominios
 DROP COLUMN habitac,parqueos,valor;
+
+--	Remover columna codigo de la tabla Condominios
+ALTER TABLE [dbo].[Condominios]
+DROP COLUMN codigo

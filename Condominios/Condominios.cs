@@ -122,8 +122,9 @@ namespace Proyecto.Condominios
                 List<SqlParameter> param = new List<SqlParameter>()
                 {
                     new SqlParameter("@id_Con" , Id),
-                };
+                };               
                 DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spEliminarCondominios", param);
+
                 return true;
             }
             catch
@@ -131,7 +132,7 @@ namespace Proyecto.Condominios
                 return false;
             }
         }
-
+        
 
 
         //Metodo para obtener los condominios de determinada empresa

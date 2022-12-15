@@ -9,7 +9,7 @@ CREATE OR ALTER PROCEDURE [dbo].[spCrearCondominios]
 	@logo Varchar(100)
 AS
 	BEGIN
-		INSERT INTO Condominios(
+		INSERT INTO [dbo].[Condominios](
 			id_Empre,
 			nombre,
 			direccion,
@@ -21,6 +21,11 @@ AS
 			@nombre,
 			@direccion,
 			@tel,
-			@logo)
+			@logo);		
 	END
-	GO
+	BEGIN
+		INSERT INTO [dbo].[CondiminiosPorEmpresas](id_Empre)
+
+		VALUES(@id_Empre);		
+	END
+GO
