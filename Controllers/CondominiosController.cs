@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Proyecto.Models;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,11 +15,7 @@ namespace Proyecto.Controllers
             return View();
         }
         // GET: CondominiosController
-
-        
-
-
-
+       
         public IActionResult EditCondominios(int Id)
         {
             Condominium condominium = new Condominium()
@@ -52,8 +49,17 @@ namespace Proyecto.Controllers
         }
         public IActionResult GetCondominios()
         {
-            ViewBag.Condominios = Condominios.Condominios.GetCondominios();
-            return View();
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userCompanySession")))
+            {       //este objeto es para tener una empresa donde tomar ids
+                Company company = new Company();
+                company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+
+                ViewBag.CondominiosList = Condominios.Condominios.getListCondomonios(company.Id);
+                return View();
+
+            }
+
+            return RedirectToAction("login2", "Login");
         }
 
         public IActionResult SearchCondominios(string txtBuscar)
