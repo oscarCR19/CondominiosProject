@@ -1,18 +1,46 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
     public class SecurityOfficerController : Controller
     {
         // GET: SecurityOfficerController
-        public ActionResult securityofficer()
-        {
+      public ActionResult EditOfficcer(string txtIdPerson) {
+
+            HttpContext.Session.GetString("SessionIdCond");
+            Person person = Persons.Persons.GetPerson(Convert.ToInt32(txtIdPerson));
+            ViewBag.Person = person;
+
             return View();
+
+        }
+
+        public ActionResult CreateOfficcer(string txtIdPerson,string txtidcond)
+        {
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            ViewBag.IdCond= txtidcond;
+            ViewBag.IdEmpre = company.Id;
+
+            return View();
+
+        }
+
+        public ActionResult DeleteOfficcer(string txtIdPerson,string txtIdRol)
+        {
+            Persons.Persons.Delete(txtIdPerson, txtIdRol);
+            HttpContext.Session.GetString("userCompanySession");
+            return RedirectToAction("mainmenu", "MainMenu");
         }
 
         public ActionResult GetSecurityOfficer()
         {
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            ViewBag.Oficiales = Oficiales.Oficiales.GetOficialesPorEmpresas(company.Id);
             return View();
         }
 

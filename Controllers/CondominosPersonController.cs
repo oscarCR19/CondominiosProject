@@ -11,14 +11,22 @@ namespace Proyecto.Controllers
         // GET: CondominiosPersonController
 
 
-        public ActionResult createperson() { 
-            
+        public ActionResult createperson(string txtIdRol, string txtCond) {
+            Company company = new Company();
+            company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
+            ViewBag.ListaCasas = Condominios.Condominios.GetFreeCasasPorCondominios(txtCond);
+            ViewBag.Id_Empre = company.Id;
+            ViewBag.IdRol = txtIdRol;
+            ViewBag.IdCond = txtCond;
             
             return View(); 
         
         }
 
         public ActionResult Create(string txtIdRol,
+                                            string txtIdCas,
+                                            string txtidempresa,
+                                            string txtidcond,
                                             string txtCed,
                                             string txtNombre1,
                                             string txtNombre2,
@@ -42,6 +50,7 @@ namespace Proyecto.Controllers
                 User=txtCed,
                 Password=txtContra
             };
+            
             if (Persons.Persons.ValidatePerson(txtCed, txtCorreo, txtTelefono).Count != 0)
             {
                 ViewBag.Message = "Los datos proporcionados ya se encuentran en uso";
@@ -50,9 +59,9 @@ namespace Proyecto.Controllers
             }
             else
 
-                Persons.Persons.InserPerson(person);
+                Persons.Persons.InserPerson(person, txtidempresa, txtidcond, txtIdCas);
 
-            ////falta retornar la vista
+            
             return RedirectToAction("mainmenu","MainMenu");
         }
 
@@ -75,9 +84,9 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult DeletePerson(string txtIdPerson)
+        public ActionResult DeletePerson(string txtIdPerson,string txtIdRol)
         {
-            Persons.Persons.Delete(txtIdPerson);
+            Persons.Persons.Delete(txtIdPerson, txtIdRol);
             HttpContext.Session.GetString("userCompanySession");
             return RedirectToAction("mainmenu", "MainMenu");
         }
