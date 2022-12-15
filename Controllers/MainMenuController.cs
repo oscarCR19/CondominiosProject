@@ -17,9 +17,9 @@ namespace Proyecto.Controllers
             { 
                 Company company = new Company();
             company = JsonConvert.DeserializeObject<Company>(HttpContext.Session.GetString("userCompanySession"));
-
-            var idCond = TempData["idCond"];
-            ViewBag.IdCond = idCond;
+            string id= HttpContext.Session.GetString("IdCond");
+            //var idCond = TempData["idCond"];
+            ViewBag.IdCond = id;
             ViewBag.Session = company;
             HttpContext.Session.GetString("userCompanySession");
             return View();
