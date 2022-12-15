@@ -39,16 +39,33 @@
 
         <div class="col-md-4">
             <div class="thumbnail">
-                <form asp-action="GetSecurityOfficer" asp-controller="SecurityOfficer">
+                <form asp-action="GetSecurityOfficer" asp-controller="SecurityOfficer" method="post">
                     <button type="submit" class="btn btn-info d-block mx-auto">
                         <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
                     </button>
+                        <input type="text" name="txtidcond" value="@ViewBag.IdCond" hidden />
                 </form>
                 <div class="text-center">
-                    <h2 style=" color:darkblue">Oficiales de Seguridad</h2>
+                    <h2 style=" color:darkblue"> Ver Oficiales de Seguridad</h2>
                 </div>
             </div>
         </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="CreateOfficcer" asp-controller="Securityofficer" method="post">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
+                        </button>
+                        <input type="text" name="txtidcond" value="@ViewBag.IdCond" hidden />
+                        <input type="text" name="txtidempresa" value="@ViewBag.Id_Empre" hidden />
+                        <input type="text" name="txtIdRol" value="3" hidden />
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue"> Crear Oficiales</h2>
+                    </div>
+                </div>
+            </div>
 
             
 

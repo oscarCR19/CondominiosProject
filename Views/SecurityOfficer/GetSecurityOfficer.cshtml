@@ -43,100 +43,35 @@
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                    @*@foreach (var @item in @ViewBag)*@
-                    @* {*@
+                    @foreach (var @item in @ViewBag.Oficiales)
+                     {
                     <tr>
                         <td style="display:none;">item</td>
-                        <td>207770863</td>
-                        <td>Jose Ureña</td>
-                        <td>86348556</td>
-                        <td>jose@gmail.com</td>
+                        <td>@item.Ced</td>
+                        <td>@item.FirstName @item.LastName1 @item.LastName2</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Email</td>
                         <td>10/12/2022</td>
                         <td>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
+                                    <form asp-action="EditOfficcer" asp-controller="SecurityOfficer" method="post">
                                     <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                    <input type="text" name="txtIdPerson" value="@item.Id" hidden />
                                 </form>
                             </div>
                         </td>
                         <td>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
+                                    <form asp-action="DeleteOfficer" asp-controller="SecurityOfficer" method="post">
                                     <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                    <input type="text" name="txtIdPerson" value="@item.Id" hidden />
+                                     <input type="text" name="txtIdRol" value="@item.Id_Rol" hidden />
                                 </form>
                             </div>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td style="display:none;">item</td>
-                        <td>105550555</td>
-                        <td>Leandro Vargas</td>
-                        <td>88558855</td>
-                        <td>leandro@gmail.com</td>
-                        <td>10/12/2022</td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                </form>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="display:none;">item</td>
-                        <td>102220222</td>
-                        <td>Oscar Mora</td>
-                        <td>88558855</td>
-                        <td>Oscar@gmail.com</td>
-                        <td>10/12/2022</td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                </form>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="display:none;">item</td>
-                        <td>103330333</td>
-                        <td>Ana Laura Solis</td>
-                        <td>55669966</td>
-                        <td>Ana@gmail.com</td>
-                        <td>10/12/2022</td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Edit" asp-controller="Home" asp-route-id="item">
-                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                </form>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="Delete" asp-controller="Home" asp-route-id="">
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    @*}*@
+                 }
                 </tbody>
             </table>
         </div>
