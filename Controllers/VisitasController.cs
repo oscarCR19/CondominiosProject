@@ -17,6 +17,7 @@ namespace Proyecto.Controllers
         }
         public ActionResult GetVisita()
         {
+
             return View();
         }
 

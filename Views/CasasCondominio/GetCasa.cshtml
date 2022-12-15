@@ -45,50 +45,34 @@
                 </tr>
             </thead>
             <tbody id="myTable">
-                @*@foreach (var @item in @ViewBag)*@
-                @* {*@
+                    @foreach (var @item in @ViewBag.ListaCasas)
+                {
                 <tr>
                     <td style="display:none;">item</td>
-                    <td>Casa #120</td>
+                    <td>Casa #@item.Id</td>
                     <td>1</td>
                     <td>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="EditCasa" asp-controller="CasasCondominio" asp-route-id="item">
+                            <form asp-action="EditCasa" asp-controller="CasasCondominio" method="post" >
                                 <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                <input type="text" name="txtIdCas" value="@item.Id" hidden/>
                             </form>
                         </div>
                     </td>
                     <td>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <form asp-action="DeleteCasa" asp-controller="CasasCondominio" asp-route-id="">
+                            <form asp-action="DeleteCasa" asp-controller="CasasCondominio" method="post" >
                                 <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                <input type="text" name="txtIdCas" value="@item.Id" hidden />
                             </form>
                         </div>
                     </td>
                 </tr>
 
-                    <tr>
-                        <td style="display:none;">item</td>
-                        <td>Casa #115</td>
-                        <td>2</td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="EditCasa" asp-controller="CasasCondominio" asp-route-id="item">
-                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                </form>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <form asp-action="DeleteCasa" asp-controller="CasasCondominio" asp-route-id="">
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
+                    
 
                
-                @*}*@
+                }
             </tbody>
         </table>
     </div>

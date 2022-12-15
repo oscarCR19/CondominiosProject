@@ -66,6 +66,7 @@
                                     <form asp-action="DeletePerson" asp-controller="CondominosPerson" method="POST">
                                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                                         <input type="text" name="txtIdPerson" value="@item.Id" hidden/>
+                                        <input type="text" name="txtIdRol" value="@item.Id_Rol" hidden />
                                     </form>
                                 </div>
                             </td>

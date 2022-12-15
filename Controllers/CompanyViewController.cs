@@ -33,8 +33,7 @@ namespace Proyecto.Controllers
 
 
             HttpContext.Session.SetString("IdCond", txtIdCond);
-            //TempData["idCond"]=txtIdCond;
-
+            HttpContext.Session.GetString("IdCond");
             return RedirectToAction("mainmenu", "MainMenu");
         }
 

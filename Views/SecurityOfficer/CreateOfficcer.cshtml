@@ -1,13 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Create";
-}
-
-@Html.Partial("SideBar")
-
-<link rel="stylesheet" href="/css/Style.css">
+﻿<link rel="stylesheet" href="/css/Style.css">
 <body>
     <div class="text-center">
-        <h1 class="display-4" style="color: white">Crear Personas</h1>
+        <h1 class="display-4" style="color: white">Crear oficial</h1>
     </div>
 
     <div class="text-center">
@@ -71,29 +65,21 @@
                             <label for="Password" class="label">Password</label>
                             <input id="txtContra" type="Password" name="txtContra" class="input" required>
                         </div>
-                        
+                        <div class="group">
                         </div>
-                      <label>Por favor escoga la casa a asignar</label>
-                    <div class="group">
-                    <select class="form-select" name="txtIdCas" aria-label="Default select example">
-                            @foreach (var @item in @ViewBag.ListaCasas)
-                            {
-                                <option value="@item.Id">Casa #@item.Id</option>
-                            }
-                        
-                    </select>
-                    </div>
-                        
 
-                        <!--Este input es para setear el idRol-->
-                    <input type="text" name="txtIdRol" value="2" hidden />
+                        
+                        <!--Este input es para setear el idEmpresa-->
+                        <input type="text" name="txtidempresa" value="@ViewBag.IdEmpre" />
 
                         <!--Este input es para setear el idcond-->
-                        <input type="text" name="txtidcond" value="@ViewBag.IdCond" hidden />
-
-                        <!--Este input es para setear el idEmpresa-->
-                    <input type="text" name="txtidempresa" value="0" hidden />
-
+                        <input type="text" name="txtidcond" value="0" />
+                        
+                        <!--Este input es para setear el idcond-->
+                        <input type="text" name="txtIdRol" value="3" />
+                        <!--Este input es para setear el idcas que en este caso va en 0-->
+                        <input type="text" name="txtIdCas" value="0" />
+                        
                         <div class="group">
                         </div>
 
@@ -106,5 +92,3 @@
     </div>
     </div>
 </body>
-
-
