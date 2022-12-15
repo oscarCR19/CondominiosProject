@@ -6,7 +6,17 @@ namespace Proyecto.Controllers
     public class CasasCondominioController : Controller
     {
         // GET: CasasCondominioController
-        public ActionResult casascondominio()
+        public ActionResult CreateCasa()
+        {
+            return View();
+        }
+
+        public ActionResult EditCasa()
+        {
+            return View();
+        }
+
+        public ActionResult GetCasa()
         {
             return View();
         }
