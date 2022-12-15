@@ -27,20 +27,7 @@
         <br>
         
         <div class="row">
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <form asp-action="GetCondominios" asp-controller="Condominios">
-                        <button type="submit" class="btn btn-info d-block mx-auto">
-                            <img src="/img/0.jpg" alt="Lights" style="width:100%">
-                        </button>
-                        <input type="text" name="txtidcond" value="@ViewBag.IdCond" />
- 
-                    </form>
-                    <div class="text-center">
-                        <h2 style=" color:darkblue">Proyectos Habitacionales</h2>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-4">
                 <div class="thumbnail">
                     
@@ -48,7 +35,7 @@
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="/img/Empleados.jpg" alt="Nature" style="width:100%">
                          </button>
-                        <input type="text" name="txtIdCond" value="@ViewBag.IdCond" />
+                        <input type="text" name="txtIdCond" value="@ViewBag.IdCond" hidden />
                     </form>
                     <div class="text-center">
                         <h2 style=" color:darkblue">Condóminos</h2>
@@ -67,6 +54,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <form asp-action="casascondominio" asp-controller="CasasCondominio">
+                        <button type="submit" class="btn btn-info d-block mx-auto">
+                            <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
+                        </button>
+                    </form>
+                    <div class="text-center">
+                        <h2 style=" color:darkblue">Ver casas</h2>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

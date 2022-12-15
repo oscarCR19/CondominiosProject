@@ -9,7 +9,7 @@
 <body>
     <div class="text-center">
         <h1 class="display-4" style="color: darkblue">Lista de Condóminos</h1>
-        
+
     </div>
     <h4 style="color:black">Condominio activo: @ViewBag.IdCond</h4>
     <hr />
@@ -58,8 +58,8 @@
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <form asp-action="EditPerson" asp-controller="CondominosPerson" method="POST">
                                         <button class="btn btn-primary btn-sm" type="submit">Editar</button>
-                                        <input type="text" name="txtIdPerson" value="@item.Id" hidden />
-                                       
+                                        <input type="text" name="txtIdPerson" value="@item.Id" />
+
                                     </form>
                                 </div>
                             </td>
@@ -67,7 +67,7 @@
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <form asp-action="DeletePerson" asp-controller="CondominosPerson" method="POST">
                                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                        <input type="text" name="txtIdPerson" value="@item.Id" hidden/>
+                                        <input type="text" name="txtIdPerson" value="@item.Id" />
                                     </form>
                                 </div>
                             </td>
@@ -75,10 +75,10 @@
 
                     }
 
-                     
-                    
 
-                    
+
+
+
                 </tbody>
             </table>
         </div>
