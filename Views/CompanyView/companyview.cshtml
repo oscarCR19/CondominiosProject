@@ -16,6 +16,43 @@
 </head>
 <body>
     <div class="container">
+       
+        
+
+        <div class="row">
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <form asp-action="GetCondominios" asp-controller="Condominios">
+                    <button type="submit" class="btn btn-info d-block mx-auto">
+                        <img src="/img/0.jpg" alt="Lights" style="width:100%">
+                    </button>
+                    <input type="text" name="txtidcond" value="@ViewBag.IdCond" hidden />
+                </form>
+                <div class="text-center">
+                    <h2 style=" color:darkblue">Proyectos Habitacionales</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <form asp-action="GetSecurityOfficer" asp-controller="SecurityOfficer">
+                    <button type="submit" class="btn btn-info d-block mx-auto">
+                        <img src="/img/oficiales.jpg" alt="Fjords" style="width:100%">
+                    </button>
+                </form>
+                <div class="text-center">
+                    <h2 style=" color:darkblue">Oficiales de Seguridad</h2>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <hr/>
+
+        <h2 style="color:black">Lista de Condominios</h2>
         @foreach (var @item in @ViewBag.CondominiosList)
         {
             <div class="col-md-3">
@@ -26,29 +63,14 @@
                     <form asp-action="goToMainMenu" asp-controller="CompanyView">
                         <button type="submit" class="btn btn-info d-block mx-auto">
                             <img src="@item.Logo" alt="Lights" style="width:100%">
-                         </button>
-                        <input type="text" name="txtIdCond" value="@item.Id" />
+                        </button>
+                        <input type="text" name="txtIdCond" value="@item.Id" hidden />
                     </form>
 
                 </div>
             </div>
 
         }
-
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <form asp-action="GetCondominios" asp-controller="Condominios">
-                    <button type="submit" class="btn btn-info d-block mx-auto">
-                        <img src="/img/0.jpg" alt="Lights" style="width:100%">
-                    </button>
-                    <input type="text" name="txtidcond" value="@ViewBag.IdCond" hidden />
-
-                </form>
-                <div class="text-center">
-                    <h2 style=" color:darkblue">Proyectos Habitacionales</h2>
-                </div>
-            </div>
-        </div>
         
 
     </div>
