@@ -58,7 +58,7 @@
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <form asp-action="EditPerson" asp-controller="CondominosPerson" method="POST">
                                         <button class="btn btn-primary btn-sm" type="submit">Editar</button>
-                                        <input type="text" name="txtIdPerson" value="@item.Id" />
+                                        <input type="text" name="txtIdPerson" value="@item.Id" hidden />
                                        
                                     </form>
                                 </div>
@@ -67,7 +67,7 @@
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <form asp-action="DeletePerson" asp-controller="CondominosPerson" method="POST">
                                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                        <input type="text" name="txtIdPerson" value="@item.Id" />
+                                        <input type="text" name="txtIdPerson" value="@item.Id" hidden/>
                                     </form>
                                 </div>
                             </td>
