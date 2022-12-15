@@ -9,7 +9,7 @@ namespace Proyecto.Controllers
     {
 
         // GET: CondominiosPersonController
-        public ActionResult CreatePerson(string txtIdRol,
+        public ActionResult Create(string txtIdRol,
                                             string txtCed,
                                             string txtNombre1,
                                             string txtNombre2,
@@ -107,7 +107,7 @@ namespace Proyecto.Controllers
 
 
         // GET: CondominiosPersonController/Create
-        public ActionResult Create()
+        public ActionResult CreatePerson()
         {
             return View();
         }
