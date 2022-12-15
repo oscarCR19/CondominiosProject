@@ -27,7 +27,7 @@ namespace Proyecto.Persons
 
 
             };
-            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spInsertPersonas", paramList);
+            DatabaseHelper.DatabaseHelper.ExecStoreProcedure("spInsertPersonas", paramList);
 
         }
 
