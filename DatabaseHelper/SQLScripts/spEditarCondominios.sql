@@ -18,4 +18,4 @@ AS
 			logo = @logo
 		WHERE id_Con = @id_Con
 	END
-	GO
+GO
