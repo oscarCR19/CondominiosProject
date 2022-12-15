@@ -22,10 +22,5 @@ AS
 			@direccion,
 			@tel,
 			@logo);		
-	END
-	BEGIN
-		INSERT INTO [dbo].[CondiminiosPorEmpresas](id_Empre)
-
-		VALUES(@id_Empre);		
-	END
+	END;
 GO
