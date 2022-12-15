@@ -64,9 +64,6 @@ Create table Condominios(
 Create table CasasPorCondominios(
 	id_Cas Int Identity(1,1) NOT NULL,
 	id_Con Int NOT NULL,
-	habitac Int NOT NULL,
-	parqueos Int NOT NULL,
-	valor Decimal NOT NULL,
 	Constraint pk_CasasPorCondominios Primary key(id_Cas),
 	Constraint fk_CasasPorCondominios Foreign key(id_Con) references Condominios(id_Con)
 );
@@ -173,3 +170,7 @@ ADD fechInicioQR datetime NULL, fechaExperQR datetime NULL ;
 --Creacion columna para la cedula juridica de las empresas
 ALTER TABLE Empresas 
 ADD cedJuridica Varchar(200) NOT NULL;
+
+--	Remover columnas de Habitaciones,Parqueos,Valor de la tabla CasaporCondominios
+ALTER TABLE CasasPorCondominios
+DROP COLUMN habitac,parqueos,valor;

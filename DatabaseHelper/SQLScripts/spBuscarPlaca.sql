@@ -9,5 +9,3 @@ AS
 		SELECT * FROM [dbo].[VehiculosPorCondominos] vc WHERE vc.placa LIKE '%' + @filtro + '%'
 END
 GO
-
-EXEC spBuscarPlaca
