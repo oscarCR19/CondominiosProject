@@ -8,12 +8,15 @@ namespace Proyecto.Persons
 {
     public class Persons
     {
-        public static void InserPerson(Person person)
-        {
+        public static void InserPerson(Person person,string idEmpre,string idCond,string txtIdCas)
+        {   Person person1 = new Person();
+            person1=Persons.GetUltimateIdPerson();
             List<SqlParameter> paramList = new List<SqlParameter>()
             {
 
                 new SqlParameter("id_Rol",person.Id_Rol),
+                new SqlParameter("id_Empre",idEmpre),
+                new SqlParameter("id_Cond",idCond),
                 new SqlParameter("ced",person.Ced),
                 new SqlParameter("nombre1",person.FirstName),
                 new SqlParameter("nombre2",person.MiddleName),
@@ -22,7 +25,9 @@ namespace Proyecto.Persons
                 new SqlParameter("telef",person.Phone),
                 new SqlParameter("correo",person.Email),
                 new SqlParameter("usuario",person.User),
-                new SqlParameter("contra",person.Password)
+                new SqlParameter("contra",person.Password),
+                new SqlParameter("id_ultPerson",person1.Id),
+                new SqlParameter("id_Cas",txtIdCas)
 
 
 
@@ -31,7 +36,22 @@ namespace Proyecto.Persons
 
         }
 
-        
+        public static Person GetUltimateIdPerson()
+        {
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetUltimateIdPerson", null);
+
+            Person person = new Person();
+
+            foreach (DataRow dr in ds.Rows)
+            {
+                person.Id = Convert.ToInt32(dr["id_Person"].ToString());
+                
+
+            }
+            return person;
+        }
+
+
 
         public static List<Person> ValidatePerson(string ced, string correo,string tel)
         {
@@ -169,13 +189,14 @@ namespace Proyecto.Persons
         }
 
 
-        public static void Delete(string txtIdPers)
+        public static void Delete(string txtIdPers,string txtIdRol)
         {
             List<SqlParameter> paramList = new List<SqlParameter>()
             {
 
                 new SqlParameter("id_Person",txtIdPers),
-                
+                new SqlParameter("id_Rol",txtIdRol),
+
             };
             DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spEliminarPerson", paramList);
 
