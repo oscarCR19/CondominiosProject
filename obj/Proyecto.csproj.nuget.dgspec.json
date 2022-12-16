@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj": {}
+    "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\CondominiosProject\\Proyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj": {
+    "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\CondominiosProject\\Proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj",
+        "projectUniqueName": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\CondominiosProject\\Proyecto.csproj",
         "projectName": "Proyecto",
-        "projectPath": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\Proyecto.csproj",
-        "packagesPath": "C:\\Users\\anani\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anani\\Desktop\\Carrera\\Tercer Cuatri 2022\\Bases de Datos 2\\Proyecto\\CondominiosProject\\obj\\",
+        "projectPath": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\CondominiosProject\\Proyecto.csproj",
+        "packagesPath": "C:\\Users\\PC-1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC-1\\Desktop\\Universidad Castro Carazo\\Cuatri 6\\Bases de datos 2\\Proyecto final\\Proyecto\\CondominiosProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC-1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -7,35 +7,55 @@ namespace Proyecto.Visitas
     public class Visitas
     {
 
-        public static Person GetPerson(int idPerson)
+        public static List<Visita> GetVisita(string txtUser)
         {
             List<SqlParameter> paramList = new List<SqlParameter>()
             {
 
-                new SqlParameter("idPerson",idPerson),
+                new SqlParameter("usuario",txtUser),
 
-};
+            };
 
 
-            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetPerson", paramList);
+            DataTable ds = DatabaseHelper.DatabaseHelper.ExecuteStoreProcedure("spGetVisitasPorPersonas", paramList);
 
-            Person person = new Person();
-
+            Visita visita= new Visita();
+            List<Visita> listVistas= new List<Visita>();  
             foreach (DataRow dr in ds.Rows)
             {
-                person.Id = Convert.ToInt32(dr["id_Person"]);
-                person.Id_Rol = Convert.ToInt32(dr["id_Rol"]);
-                person.Ced = dr["ced"].ToString();
-                person.FirstName = dr["nombre1"].ToString();
-                person.MiddleName = dr["nombre2"].ToString();
-                person.LastName1 = dr["apellido1"].ToString();
-                person.LastName2 = dr["apellido2"].ToString();
-                person.Phone = dr["telef"].ToString();
-                person.Email = dr["correo"].ToString();
-                person.User = dr["usuario"].ToString();
-                person.Password = dr["contra"].ToString();
-            }
-            return person;
+                listVistas.Add( new Visita { 
+                Id = Convert.ToInt32(dr["id_Vis"]),
+                Nombre = dr["nombre"].ToString(),
+                Apellido1 = dr["apellido1"].ToString(),
+                Cita = (DateOnly)(dr["cita"]),
+                CodeQr = dr["cod_QR"].ToString(),
+                Placa = dr["placa"].ToString(),
+                RutaCodeQr = dr["ruta_QR"].ToString(),
+                Color = dr["col_Vehic"].ToString()
+            });
+        }
+            return listVistas;
+        }
+
+        public static void CrearVisita(Visita visita)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>()
+            {
+
+                new SqlParameter("nombre",visita.Nombre),
+                new SqlParameter("apellido1",visita.Placa),
+                new SqlParameter("placa",visita.Placa),
+                new SqlParameter("col_Vehic",visita.Color),
+                new SqlParameter("cita",visita.Cita),
+                new SqlParameter("code_QR",visita.CodeQr)
+
+
+            };
+
+
+            DatabaseHelper.DatabaseHelper.ExecStoreProcedure("spCrearVisita", paramList);
+
+            
         }
     }
 }
