@@ -1,13 +1,26 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
     public class VisitasController : Controller
     {
         // GET: VisitsController
-        public ActionResult CreateVisita()
+        public ActionResult CreateVisita(string txtNombre,string txtApellido,string txtPlaca,string txtColor,string txtFecha)
         {
+            DateOnly date =DateOnly.Parse(txtFecha);
+            Visita visita = new Visita()
+            {
+                Nombre = txtNombre,
+                Apellido1 = txtApellido,
+                Placa = txtPlaca,
+                Color = txtColor,
+                Cita = date,
+                CodeQr = CodeQR.CodeQR.GetCode()
+            };
+            string name = "";
+            Visitas.Visitas.CrearVisita(visita);
             return View();
         }
 
@@ -15,9 +28,9 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        public ActionResult GetVisita()
+        public ActionResult GetVisita(string txtUser)
         {
-
+            ViewBag.ListaVisitas= Visitas.Visitas.GetVisita(txtUser);
             return View();
         }
 

@@ -8,28 +8,29 @@
 		<h1 class="display-4" style="color: white">Crear Visita</h1>
 	</div>
 	<div class="login-wrap">
-		<form asp-controller="Login" asp-action="SaveVisita">
+		<form asp-controller="Visitas" asp-action="CreateVisita">
 			<div class="login-html">
 				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Crear Visita</label>
 
 				<div class="login-form">
 					<div class="sign-in-htm">
-						<div class="group">
-							<label for="Cedula" class="label">Cedula</label>
-							<input id="Cedula" type="text" name="txtCedula" class="input" required>
-						</div>
+						
 						<div class="group">
 							<label for="Nombre" class="label">Nombre</label>
 							<input id="Nombre" type="text" name="txtNombre" class="input" required>
 						</div>
+
 						<div class="group">
-							<label for="Marca" class="label">Marca Vehiculo</label>
-							<input id="Marca" type="text" name="txtMarca" class="input" required>
+							<label for="Nombre" class="label">Apellido</label>
+							<input id="Nombre" type="text" name="txtApellido" class="input" required>
 						</div>
+
 						<div class="group">
-							<label for="Modelo" class="label">Modelo Vehiculo</label>
-							<input id="Modelo" type="text" name="txtModelo" class="input" required>
+							<label for="Nombre" class="label">Placa</label>
+							<input id="Nombre" type="text" name="txtPlaca" class="input" required>
 						</div>
+						
+						
 						<div class="group">
 							<label for="Color" class="label">Color Vehiculo</label>
 							<input id="Color" type="text" name="txtColor" class="input" required>
@@ -37,44 +38,6 @@
 						<div class="group">
 							<label for="Fecha" class="label">Fecha Visita</label>
 							<input type="date" name="txtFecha" class="input" required>
-						</div>
-
-						<div class="group">
-							<label for="Hora" class="label">Hora Visita</label>
-							<input type="time" name="txtHora" class="input" required>
-						</div>
-
-						<div class="group">
-							<label for="Rol" class="label">Seleccione el tipo de Visita</label>
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-							<label class="form-check-label" for="flexRadioDefault1">
-								Visita Normal
-							</label>
-						</div>
-						<div class="group">
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-							<label class="form-check-label" for="flexRadioDefault2">
-								Visita Favorita
-							</label>
-						</div>
-
-						<div class="group">
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-							<label class="form-check-label" for="flexRadioDefault2">
-								Visita Rápida Delivery
-							</label>
-						</div>
-
-						<div class="group">
 						</div>
 
 						<div class="group">

@@ -1,8 +1,8 @@
 ﻿namespace Proyecto.CodeQR
 {
-    public class CodeQR
+    public static class CodeQR
     {
-        public string GetCode()
+        public static string GetCode()
         {
             string result = default;
 

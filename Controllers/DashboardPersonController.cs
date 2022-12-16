@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
@@ -9,7 +11,7 @@ namespace Proyecto.Controllers
         public ActionResult dasboardperson()
         {
             if (!String.IsNullOrEmpty(HttpContext.Session.GetString("userPersonSession")))
-            {
+            {   Person person = new Person();
                 ViewBag.Session = HttpContext.Session.GetString("userPersonSession");
                 return View();
 
